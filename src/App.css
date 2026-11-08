@@ -1,738 +1,1200 @@
-/* Layout & Container */
-.app-container {
-  min-height: 100vh;
+/* ==========================================================================
+   PREMIUM SOUTH INDIAN WEDDING INVITATION STYLESHEET
+   Inspired by traditional Kerala temple aesthetic, warm ivory, antique gold,
+   and deep burgundy / dark chocolate typography.
+   ========================================================================== */
+
+/* ==========================================================================
+   VIDEO COVER LANDING SCREEN
+   ========================================================================== */
+
+.video-cover-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: #000;
   display: flex;
-  flex-direction: column;
-  position: relative;
-  background-color: var(--color-neutral);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: coverFadeIn 0.5s ease-out;
 }
 
-.content-container {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px;
+@keyframes coverFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* Header & Navigation */
-.header {
-  position: sticky;
+.cover-video {
+  position: absolute;
   top: 0;
-  z-index: 50;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  background-color: rgba(250, 250, 250, 0.85);
-  border-bottom: var(--border-subtle);
-  transition: all 0.2s ease;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
 }
 
-.nav {
+.cover-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 64px;
+  justify-content: center;
+  padding: 24px;
+  pointer-events: none;
 }
 
-.brand-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: var(--color-primary);
+.cover-content {
+  text-align: center;
+  max-width: 680px;
+  pointer-events: auto;
+  animation: coverSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes coverSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cover-tag {
+  display: inline-block;
+  font-family: var(--font-caps);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 12px;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+}
+
+.cover-quote {
+  font-family: var(--font-serif);
+  font-size: 44px;
   font-weight: 500;
-  letter-spacing: -0.5px;
+  line-height: 1.25;
+  color: var(--color-maroon);
+  margin-bottom: 10px;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
 }
 
-.brand-triangle {
-  width: 22px;
-  height: 20px;
-  fill: var(--color-primary);
+.cover-couple {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-style: italic;
+  color: var(--color-maroon-dark);
+  margin-bottom: 28px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.cover-open-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #541722 0%, #3b0f17 100%);
+  color: #ffffff;
+  border: 1px solid rgba(223, 203, 165, 0.7);
+  padding: 15px 38px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(84, 23, 34, 0.35);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Light shimmer sweep */
+.cover-open-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  transition: all 0.65s ease;
+}
+
+.cover-open-btn svg {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.brand-link:hover .brand-triangle {
-  transform: scale(1.08);
+.cover-open-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  background: linear-gradient(135deg, #70212f 0%, #541722 100%);
+  border-color: #f3ecdf;
+  box-shadow: 0 14px 32px rgba(84, 23, 34, 0.45), 0 0 18px rgba(179, 139, 76, 0.4);
 }
 
-.nav-links {
+.cover-open-btn:hover::before {
+  left: 125%;
+}
+
+.cover-open-btn:hover svg {
+  transform: translateX(4px);
+}
+
+.cover-open-btn:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+@media (max-width: 640px) {
+  .cover-quote {
+    font-size: 30px;
+  }
+  .cover-couple {
+    font-size: 17px;
+  }
+  .cover-open-btn {
+    padding: 12px 26px;
+    font-size: 14px;
+  }
+}
+
+/* Main Page Wrapper */
+.wedding-website-wrapper {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--color-ivory);
+  background-image: 
+    radial-gradient(ellipse at 50% 0%, rgba(223, 203, 165, 0.22) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(84, 23, 34, 0.05) 0%, transparent 60%);
   display: flex;
-  align-items: center;
-  gap: 28px;
+  flex-direction: column;
 }
 
-.nav-link {
-  text-decoration: none;
-  color: var(--color-secondary);
-  font-size: 14px;
-  font-weight: 500;
-  transition: color 0.15s ease;
+.main-invitation-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.nav-link:hover {
-  color: var(--color-primary);
+.section-container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-/* Hero Section */
-.hero-section {
-  padding: 100px 0 80px 0;
-  text-align: center;
-  position: relative;
-}
+/* ==========================================================================
+   HERO INVITATION SECTION (Full Viewport Master Reference Card)
+   ========================================================================== */
 
-.hero-mark-wrapper {
-  display: inline-flex;
-  align-items: center;
+.invitation-hero-section {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: var(--color-ivory);
+}
+
+/* Outer Invitation Card Frame - Expands to Full Viewport */
+.invitation-card-outer {
   position: relative;
-  margin-bottom: 32px;
+  width: 100vw;
+  min-height: 100vh;
+  max-width: 100%;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-gold);
+  box-shadow: 
+    inset 0 0 0 10px var(--color-card-bg),
+    inset 0 0 0 11px rgba(179, 139, 76, 0.45);
+  border-radius: 0;
+  padding: 30px 60px 40px 60px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: heroCardFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  box-sizing: border-box;
 }
 
-/* Central triangle soft glow as noted in vercel.app-design.md: 
-   "The central triangle’s soft glow is an exception and serves as a focal atmospheric effect" */
-.hero-glow {
+/* ==========================================================================
+   FLOATING BOTANICAL LEAVES & PETALS (Strictly bounded to Hero Section)
+   ========================================================================== */
+
+.floating-botanicals-layer {
   position: absolute;
-  width: 140px;
-  height: 140px;
-  background: radial-gradient(circle, rgba(23, 23, 23, 0.08) 0%, rgba(250, 250, 250, 0) 70%);
-  border-radius: 50%;
+  inset: 0;
   pointer-events: none;
-  animation: pulseGlow 4s ease-in-out infinite alternate;
+  overflow: hidden;
+  z-index: 1; /* Above background, strictly behind .invitation-inner-grid (z-index: 2) */
 }
 
-@keyframes pulseGlow {
-  0% { transform: scale(0.9); opacity: 0.6; }
-  100% { transform: scale(1.15); opacity: 1; }
+.botanical-particle {
+  position: absolute;
+  top: -60px;
+  opacity: 0;
+  pointer-events: none;
+  animation-name: floatBotanical;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 2px 4px rgba(84, 23, 34, 0.04));
 }
 
-.hero-triangle {
-  width: 68px;
-  height: 60px;
-  fill: var(--color-primary);
+/* Subtle organic color variations */
+.botanical-particle.leaf-sage {
+  color: #7b8f67;
+  opacity: 0.75;
+}
+
+.botanical-particle.petal-pink {
+  color: #e0abb3;
+  opacity: 0.7;
+}
+
+.botanical-particle.leaf-beige {
+  color: #cfbe9f;
+  opacity: 0.65;
+}
+
+@keyframes floatBotanical {
+  0% {
+    opacity: 0;
+    transform: translateY(0) translateX(0) rotate(var(--init-rot)) scale(0.9);
+  }
+  15% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(50vh) translateX(var(--drift-x)) rotate(calc(var(--init-rot) + 120deg)) scale(1);
+  }
+  85% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(112vh) translateX(calc(var(--drift-x) * 1.5)) rotate(calc(var(--init-rot) + 240deg)) scale(0.85);
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .botanical-particle {
+    animation: none !important;
+    display: none !important;
+  }
+}
+
+@keyframes heroCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Corner Flourishes */
+.corner-flourish {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+}
+.corner-top-left { top: 16px; left: 16px; }
+.corner-top-right { top: 16px; right: 16px; }
+.corner-bottom-left { bottom: 16px; left: 16px; }
+.corner-bottom-right { bottom: 16px; right: 16px; }
+
+/* Upper-Right Hanging Jasmine Garland */
+.hero-jasmine-accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 180px;
+  height: auto;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+/* Bottom Ornamental Lace Border */
+.bottom-ornamental-lace {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  background-image: radial-gradient(circle, var(--color-gold) 1.5px, transparent 2px);
+  background-size: 18px 16px;
+  background-repeat: repeat-x;
+  opacity: 0.55;
+  border-top: 1px dashed var(--color-gold-faint);
+}
+
+/* Inner Grid: 2-Column Landscape Layout Filling Viewport */
+.invitation-inner-grid {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 60px;
+  align-items: center;
   position: relative;
   z-index: 2;
-  transition: transform 0.3s ease;
-}
-
-.hero-triangle:hover {
-  transform: translateY(-2px);
-}
-
-.pill-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  background-color: var(--color-surface);
-  border: var(--border-subtle);
-  border-radius: var(--radius-full);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-primary);
-  margin-bottom: 24px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
-}
-
-.badge-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #10b981;
-}
-
-.hero-title {
-  font-size: 64px;
-  font-weight: 400;
-  line-height: 1.0;
-  letter-spacing: -3.84px;
-  color: var(--color-primary);
-  margin-bottom: 24px;
-}
-
-.hero-subtitle {
-  font-size: 22px;
-  font-weight: 400;
-  line-height: 34px;
-  letter-spacing: -0.6px;
-  color: var(--color-secondary);
-  max-width: 640px;
-  margin: 0 auto 36px auto;
-}
-
-.hero-actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 64px;
-}
-
-/* Button Component Standards */
-.button-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background-color: var(--color-primary);
-  color: var(--color-surface);
-  font-family: var(--font-sans);
-  font-size: 15px;
-  font-weight: 500;
-  height: 42px;
-  padding: 0 24px;
-  border-radius: var(--radius-full);
-  text-decoration: none;
-  border: 1px solid var(--color-primary);
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.button-primary:hover {
-  background-color: #000000;
-  transform: translateY(-1px);
-}
-
-.button-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background-color: transparent;
-  color: var(--color-primary);
-  font-family: var(--font-sans);
-  font-size: 15px;
-  font-weight: 500;
-  height: 42px;
-  padding: 0 24px;
-  border-radius: var(--radius-full);
-  text-decoration: none;
-  border: var(--border-subtle);
-  background-color: var(--color-surface);
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.button-secondary:hover {
-  border-color: var(--color-primary);
-  background-color: var(--color-neutral);
-}
-
-.button-link {
-  background: transparent;
-  border: none;
-  color: var(--color-primary);
-  font-size: 14px;
-  font-family: var(--font-sans);
-  text-decoration: underline;
-  cursor: pointer;
-  padding: 0;
-}
-
-/* Hero Media Display */
-.hero-media-card {
-  background-color: var(--color-surface);
-  border: var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  position: relative;
-  overflow: hidden;
-  max-width: 980px;
-  margin: 0 auto;
-}
-
-.hero-image {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: var(--radius-md);
-  display: block;
-}
-
-.hero-caption-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px 8px 16px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--color-secondary);
-}
-
-/* Countdown Metric Grid */
-.countdown-section {
-  padding: 40px 0 80px 0;
-}
-
-.metric-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.metric-card {
-  background-color: var(--color-surface);
-  border: var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 24px 20px;
-  text-align: center;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.metric-card:hover {
-  border-color: #cbd5e1;
-  transform: translateY(-2px);
-}
-
-.metric-number {
-  font-size: 42px;
-  font-weight: 400;
-  letter-spacing: -2px;
-  line-height: 1;
-  color: var(--color-primary);
-  font-family: var(--font-mono);
-  margin-bottom: 6px;
-}
-
-.metric-label {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--color-secondary);
-  font-weight: 500;
-}
-
-/* Section Header Component */
-.section-header {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 56px auto;
-}
-
-.section-tag {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--color-secondary);
-  margin-bottom: 12px;
-  display: block;
-}
-
-.section-title {
-  font-size: 39px;
-  font-weight: 400;
-  line-height: 47px;
-  letter-spacing: -1.8px;
-  color: var(--color-primary);
-  margin-bottom: 14px;
-}
-
-.section-desc {
-  font-size: 16px;
-  color: var(--color-secondary);
-  line-height: 24px;
-}
-
-/* Schedule / Itinerary Timeline */
-.itinerary-section {
-  padding: 80px 0;
-  border-top: var(--border-subtle);
-}
-
-.timeline-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.timeline-item {
-  background-color: var(--color-surface);
-  border: var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 20px 24px;
-  display: grid;
-  grid-template-columns: 140px 1fr auto;
-  align-items: center;
-  gap: 20px;
-  transition: all 0.15s ease;
-}
-
-.timeline-item:hover {
-  border-color: #cbd5e1;
-  background-color: #ffffff;
-}
-
-.timeline-time {
-  font-family: var(--font-mono);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--color-primary);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.timeline-content h4 {
-  font-size: 17px;
-  font-weight: 500;
-  color: var(--color-primary);
-  margin-bottom: 4px;
-}
-
-.timeline-content p {
-  font-size: 14px;
-  color: var(--color-secondary);
-  line-height: 20px;
-}
-
-.timeline-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 10px;
-  border-radius: var(--radius-full);
-  background-color: var(--color-neutral);
-  border: var(--border-subtle);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--color-secondary);
-  font-family: var(--font-mono);
-}
-
-/* Venue & Details Section */
-.venue-section {
-  padding: 80px 0;
-  border-top: var(--border-subtle);
-}
-
-.venue-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  align-items: center;
-}
-
-.venue-card-visual {
-  border: var(--border-subtle);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  background-color: var(--color-surface);
-  padding: 8px;
-}
-
-.venue-image {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-  display: block;
-}
-
-.venue-details-card {
-  background-color: var(--color-surface);
-  border: var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 36px 32px;
-}
-
-.venue-name {
-  font-size: 31px;
-  font-weight: 400;
-  letter-spacing: -1.2px;
-  line-height: 37px;
-  margin-bottom: 12px;
-}
-
-.venue-address {
-  font-size: 15px;
-  color: var(--color-secondary);
-  margin-bottom: 24px;
-  line-height: 22px;
-}
-
-.spec-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-bottom: 32px;
-  border-top: var(--border-subtle);
-  padding-top: 20px;
-}
-
-.spec-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-
-.spec-icon {
-  color: var(--color-primary);
-  margin-top: 2px;
-}
-
-.spec-item h5 {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--color-primary);
-  margin-bottom: 2px;
-}
-
-.spec-item p {
-  font-size: 13px;
-  color: var(--color-secondary);
-}
-
-/* Registry & Story Gallery Cards */
-.gallery-section {
-  padding: 80px 0;
-  border-top: var(--border-subtle);
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.gallery-card {
-  background-color: var(--color-surface);
-  border: var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-}
-
-.gallery-card-img {
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-  margin-bottom: 14px;
-}
-
-.gallery-card h4 {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--color-primary);
-  margin-bottom: 6px;
-}
-
-.gallery-card p {
-  font-size: 13px;
-  color: var(--color-secondary);
-  line-height: 19px;
-  margin-bottom: 14px;
   flex-grow: 1;
 }
 
-/* RSVP Form Section */
-.rsvp-section {
-  padding: 90px 0;
-  border-top: var(--border-subtle);
+/* Left Column: Kerala Architectural Arch */
+.arch-visual-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
-.rsvp-card {
-  background-color: var(--color-surface);
-  border: var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 48px;
-  max-width: 680px;
-  margin: 0 auto;
+.kerala-arch-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 72vh;
+  max-height: 580px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
-.form-group {
+.arch-clip-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.arch-photo-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  clip-path: url(#keralaArchClip);
+  -webkit-clip-path: url(#keralaArchClip);
+  box-shadow: 0 15px 35px rgba(84, 23, 34, 0.15);
+}
+
+.arch-reference-crop {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  transform: scale(1.02);
+  transition: transform 1.5s ease;
+}
+
+.arch-reference-crop:hover {
+  transform: scale(1.05);
+}
+
+.arch-border-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* Right Column: Typography & Auspicious Details */
+.typography-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 16px;
+}
+
+.typo-content-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Shubha Vivaham Tag */
+.subha-vivaham-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 24px;
 }
 
-.form-label {
-  display: block;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--color-primary);
-  margin-bottom: 8px;
-}
-
-.form-input,
-.form-select,
-.form-textarea {
-  width: 100%;
-  font-family: var(--font-sans);
-  font-size: 15px;
-  background-color: var(--color-surface);
-  color: var(--color-on-surface);
-  border: var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 12px 14px;
-  outline: none;
-  transition: border-color 0.15s ease;
-}
-
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
-  border-color: var(--color-primary);
-}
-
-.radio-group {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.gold-line-tag {
+  display: flex;
+  align-items: center;
   gap: 12px;
 }
 
-.radio-pill-label {
+.gold-line-tag .tiny-line {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background-color: var(--color-gold);
+}
+
+.gold-line-tag .tag-text {
+  font-family: var(--font-caps);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+}
+
+/* Main Headline */
+.hero-script-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 4.4vw, 68px);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--color-text-primary);
+  margin-bottom: 24px;
+}
+
+.hero-script-heading .italic-journey {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-maroon);
+  letter-spacing: -0.5px;
+}
+
+/* Couple Names */
+.names-ornament-group {
+  margin-bottom: 26px;
+}
+
+.couple-names {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.2vw, 32px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-maroon);
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.couple-names .ampersand {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 28px;
+  color: var(--color-gold);
+  margin: 0 4px;
+}
+
+.names-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Wedding Dates Section */
+.wedding-dates-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.dates-pill-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 12px;
-  border: var(--border-subtle);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.15s ease;
+  gap: 18px;
 }
 
-.radio-pill-label.active {
-  border-color: var(--color-primary);
-  background-color: var(--color-neutral);
+.vertical-gold-bracket {
+  display: block;
+  width: 1px;
+  height: 38px;
+  background-color: var(--color-gold);
 }
 
-.radio-pill-label input {
-  display: none;
-}
-
-.success-banner {
-  padding: 24px;
-  background-color: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  border-radius: var(--radius-md);
+.dates-inner {
   text-align: center;
-  margin-bottom: 24px;
 }
 
-.success-banner h4 {
-  color: #166534;
-  font-size: 18px;
-  margin-bottom: 6px;
+.gregorian-date {
+  font-family: var(--font-caps);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  color: var(--color-maroon);
+  text-transform: uppercase;
+  margin-bottom: 2px;
 }
 
-.success-banner p {
-  color: #15803d;
-  font-size: 14px;
+.malayalam-date {
+  font-family: var(--font-serif);
+  font-size: 14.5px;
+  font-style: italic;
+  color: var(--color-text-secondary);
 }
 
-/* FAQ Section */
-.faq-section {
-  padding: 80px 0;
-  border-top: var(--border-subtle);
+.bottom-subtle-lotus {
+  margin-top: 6px;
+  opacity: 0.85;
 }
 
-.faq-list {
+/* ==========================================================================
+   COMMON ORNAMENTAL DIVIDERS & SECTION HEADERS
+   ========================================================================== */
+
+.ornamental-divider-wrapper {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 800px;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 320px;
   margin: 0 auto;
 }
 
-.faq-item {
-  background-color: var(--color-surface);
-  border: var(--border-subtle);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  transition: border-color 0.15s ease;
+.divider-line {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-gold-light), var(--color-gold), transparent);
 }
 
-.faq-item:hover {
-  border-color: #cbd5e1;
-}
-
-.faq-question-btn {
-  width: 100%;
+.divider-icon {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 18px 24px;
-  background: none;
-  border: none;
-  text-align: left;
-  font-family: var(--font-sans);
-  font-size: 16px;
+}
+
+.section-header-block {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 48px auto;
+}
+
+.section-eyebrow {
+  display: block;
+  font-family: var(--font-caps);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-gold-deep);
+  margin-bottom: 8px;
+}
+
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: 38px;
   font-weight: 500;
-  color: var(--color-primary);
-  cursor: pointer;
+  color: var(--color-maroon);
+  line-height: 1.25;
+  margin-bottom: 12px;
 }
 
-.faq-answer {
-  padding: 0 24px 20px 24px;
-  font-size: 14px;
-  color: var(--color-secondary);
-  line-height: 22px;
+.section-subtext {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
 }
 
-/* Footer */
-.footer {
-  border-top: var(--border-subtle);
-  padding: 48px 0;
-  background-color: var(--color-neutral);
+/* ==========================================================================
+   SECTION 2: THE WEDDING CELEBRATION
+   ========================================================================== */
+
+.section-celebration {
+  padding: 80px 0;
+  position: relative;
 }
 
-.footer-content {
+.celebration-card {
+  max-width: 820px;
+  margin: 0 auto;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-md);
+  padding: 56px 44px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.celebration-card::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(179, 139, 76, 0.25);
+  pointer-events: none;
+  border-radius: 6px;
+}
+
+.celebration-title {
+  font-family: var(--font-serif);
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--color-maroon);
+}
+
+.celebration-paragraph {
+  font-size: 17px;
+  line-height: 1.85;
+  color: var(--color-text-secondary);
+  margin: 24px auto;
+  max-width: 660px;
+}
+
+.celebration-quote {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-style: italic;
+  color: var(--color-maroon-light);
+  line-height: 1.7;
+  margin: 32px auto 24px auto;
+  max-width: 580px;
+}
+
+.celebration-signature {
+  font-family: var(--font-caps);
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-gold-deep);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   SECTION 3: WEDDING DETAILS & ITINERARY
+   ========================================================================== */
+
+.section-details {
+  padding: 80px 0;
+  background-color: rgba(243, 236, 223, 0.45);
+  border-top: 1px solid var(--color-gold-faint);
+  border-bottom: 1px solid var(--color-gold-faint);
+}
+
+/* Auspicious Timings Banner */
+.auspicious-timing-banner {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-md);
+  padding: 28px 36px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  font-size: 13px;
-  color: var(--color-secondary);
+  justify-content: space-around;
+  margin-bottom: 56px;
+  box-shadow: var(--shadow-subtle);
 }
 
-.footer-brand {
+.timing-col {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.timing-label {
+  font-family: var(--font-caps);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.timing-val {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-maroon);
+}
+
+.timing-sub {
+  font-size: 13px;
+  color: var(--color-gold-deep);
+  font-style: italic;
+}
+
+.timing-separator {
+  color: var(--color-gold);
+  opacity: 0.8;
+}
+
+/* Events Grid */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.event-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-md);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-gold);
+}
+
+.event-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.event-order {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-style: italic;
+  color: var(--color-gold-deep);
+}
+
+.event-sparkle {
+  color: var(--color-gold);
+}
+
+.event-title {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--color-maroon);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.event-time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-gold-deep);
+  font-family: var(--font-caps);
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.event-desc {
+  font-size: 14.5px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.event-attire-tag {
+  border-top: 1px dashed var(--color-gold-border);
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.attire-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-family: var(--font-caps);
+  letter-spacing: 1.5px;
+  color: var(--color-text-muted);
+}
+
+.attire-val {
+  font-size: 13px;
+  color: var(--color-maroon);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   SECTION 4: VENUE & LOCATION
+   ========================================================================== */
+
+.section-venue {
+  padding: 80px 0;
+}
+
+.venue-card-wrapper {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-md);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.venue-info-box {
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.venue-pin-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-gold-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.text-maroon {
+  color: var(--color-maroon);
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+.venue-title {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--color-maroon);
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.venue-subtitle {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-style: italic;
+  color: var(--color-gold-deep);
+  margin-bottom: 24px;
+}
+
+.venue-address-block {
+  margin-bottom: 24px;
+}
+
+.address-label {
+  display: block;
+  font-family: var(--font-caps);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.address-text {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.venue-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.contact-row {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 500;
-  color: var(--color-primary);
+  color: var(--color-text-muted);
 }
 
-/* Responsive adjustments */
-@media (max-width: 840px) {
-  .hero-title {
+.venue-actions {
+  display: flex;
+}
+
+.btn-directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--color-maroon);
+  color: #ffffff;
+  padding: 14px 26px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-family: var(--font-caps);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 16px rgba(84, 23, 34, 0.25);
+  transition: all 0.25s ease;
+}
+
+.btn-directions:hover {
+  background-color: var(--color-maroon-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(84, 23, 34, 0.35);
+}
+
+.venue-map-box {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  background-color: #eee;
+}
+
+/* ==========================================================================
+   SECTION 5: CLOSING & BLESSINGS
+   ========================================================================== */
+
+.section-closing {
+  padding: 80px 0 100px 0;
+  background-color: var(--color-ivory-dark);
+  border-top: 1px solid var(--color-gold-faint);
+}
+
+.closing-content-card {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.closing-heading {
+  font-family: var(--font-serif);
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--color-maroon);
+  margin-bottom: 16px;
+}
+
+.closing-message {
+  font-size: 17px;
+  font-style: italic;
+  font-family: var(--font-serif);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  max-width: 600px;
+}
+
+.closing-couple-signature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px 0 24px 0;
+}
+
+.signature-couple-name {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-style: italic;
+  color: var(--color-maroon);
+}
+
+.signature-ampersand {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 26px;
+  color: var(--color-gold);
+}
+
+.rsvp-note-text {
+  font-family: var(--font-caps);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-gold-deep);
+  font-weight: 600;
+  margin-bottom: 36px;
+}
+
+.cultural-blessing-footer {
+  border-top: 1px solid var(--color-gold-border);
+  padding-top: 28px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.sanskrit-blessing {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.9;
+  letter-spacing: 0.5px;
+  margin-bottom: 18px;
+  font-family: var(--font-serif);
+}
+
+.footer-credits {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: var(--font-caps);
+}
+
+/* ==========================================================================
+   MUSIC PLAYER FLOATING TOGGLE
+   ========================================================================== */
+
+.music-player-container {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 1000;
+}
+
+.music-toggle-btn {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-maroon);
+  color: #ffffff;
+  border: 1px solid var(--color-gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(84, 23, 34, 0.35);
+  transition: all 0.3s ease;
+}
+
+.music-toggle-btn:hover {
+  transform: scale(1.08);
+  background-color: var(--color-maroon-dark);
+  box-shadow: 0 6px 24px rgba(84, 23, 34, 0.5);
+}
+
+.music-pulse-ring {
+  position: absolute;
+  inset: -6px;
+  border: 1.5px solid var(--color-gold);
+  border-radius: 50%;
+  animation: pulseMusic 2s infinite ease-out;
+  pointer-events: none;
+}
+
+@keyframes pulseMusic {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Tablets & Mobile Devices)
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .invitation-inner-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .arch-visual-col {
+    order: 1;
+  }
+
+  .typography-col {
+    order: 2;
+  }
+
+  .kerala-arch-wrapper {
+    max-width: 380px;
+  }
+
+  .hero-script-heading {
     font-size: 42px;
-    letter-spacing: -2px;
-  }
-  
-  .hero-subtitle {
-    font-size: 18px;
-    line-height: 28px;
   }
 
-  .metric-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .venue-grid {
+  .events-grid {
     grid-template-columns: 1fr;
   }
 
-  .gallery-grid {
+  .venue-card-wrapper {
     grid-template-columns: 1fr;
   }
 
-  .timeline-item {
-    grid-template-columns: 1fr;
-    gap: 8px;
+  .auspicious-timing-banner {
+    flex-direction: column;
+    gap: 20px;
   }
 
-  .nav-links {
+  .timing-separator {
     display: none;
   }
 
-  .rsvp-card {
-    padding: 24px 18px;
+  .hero-jasmine-accent {
+    width: 110px;
+  }
+}
+
+@media (max-width: 640px) {
+  .invitation-card-outer {
+    padding: 32px 18px 42px 18px;
+  }
+
+  .hero-script-heading {
+    font-size: 34px;
+  }
+
+  .couple-names {
+    font-size: 20px;
+  }
+
+  .gregorian-date {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  .celebration-title,
+  .section-heading,
+  .closing-heading {
+    font-size: 28px;
+  }
+
+  .celebration-card {
+    padding: 36px 20px;
+  }
+
+  .venue-info-box {
+    padding: 32px 20px;
+  }
+
+  .music-player-container {
+    bottom: 20px;
+    right: 20px;
   }
 }
