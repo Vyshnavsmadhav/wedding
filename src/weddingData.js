@@ -4,18 +4,18 @@
  */
 export const weddingData = {
   couple: {
-    groom: "Dr. Akshay S Suresh",
-    bride: "Dr. Surya Suresh",
-    shortNames: "Akshay & Surya",
+    groom: "Dr. Vishnu Prakash U.K.",
+    bride: "Dr. Sreelekha E.M.",
+    shortNames: "Vishnu & Sreelekha",
     tagline: "Two souls, one beautiful journey.",
     subtagline: "Shubha Vivaham"
   },
   dates: {
-    gregorian: "2 DECEMBER 2026",
-    malayalam: "16th Vrischikam 1202",
-    day: "Wednesday",
-    muhurtham: "09:15 AM - 10:30 AM",
-    isoDateTime: "2026-12-02T09:15:00"
+    gregorian: "13 & 15 DECEMBER 2026",
+    malayalam: "27th & 29th Vrischikam 1202",
+    day: "Sunday & Tuesday",
+    muhurtham: "08:00 AM - 09:00 AM",
+    isoDateTime: "2026-12-13T08:00:00"
   },
   invitationMessage: {
     title: "A Celebration of Love & Togetherness",
@@ -53,7 +53,7 @@ export const weddingData = {
   closing: {
     heading: "With Love & Anticipation",
     message: "Your presence, warm smiles, and heartfelt blessings will make our celebration complete and truly memorable.",
-    rsvpNote: "Kindly confirm your presence by November 15, 2026."
+    rsvpNote: "Kindly join us for the celebrations on December 13 & 15, 2026."
   }
 };
 

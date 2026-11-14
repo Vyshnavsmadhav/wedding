@@ -5,10 +5,10 @@ import { ArrowRight } from 'lucide-react';
 
 import HeroInvitation from './components/HeroInvitation';
 import CelebrationSection from './components/CelebrationSection';
-import DetailsSection from './components/DetailsSection';
-import VenueSection from './components/VenueSection';
+import ReceptionSection from './components/ReceptionSection';
 import ClosingSection from './components/ClosingSection';
 import MusicPlayer from './components/MusicPlayer';
+import { useScrollArrival } from './hooks/useScrollArrival';
 import { weddingData } from './weddingData';
 import './App.css';
 
@@ -17,27 +17,48 @@ export default function App() {
   const [hasEntered, setHasEntered] = useState(false);
   const audioRef = useRef(null);
 
+  // Initialize IntersectionObserver arrival animations for staggered elements
+  useScrollArrival(hasEntered);
+
   // Initialize Lenis smooth scroll
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.25,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
       smoothWheel: true,
-      touchMultiplier: 2
+      wheelMultiplier: 1.1,
+      touchMultiplier: 1.8,
+      infinite: false,
+      autoResize: true,
     });
 
+    // Make lenis globally accessible
+    window.__lenis = lenis;
+
+    // Synchronize Lenis scroll ticks with requestAnimationFrame
+    let rafId;
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
+    rafId = requestAnimationFrame(raf);
 
-    const rafId = requestAnimationFrame(raf);
+    // Stop Lenis while on cover screen so background doesn't move unintentionally
+    if (!hasEntered) {
+      lenis.stop();
+    } else {
+      lenis.start();
+      lenis.resize();
+    }
 
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      delete window.__lenis;
     };
-  }, []);
+  }, [hasEntered]);
 
   // Background traditional Indian classical wedding music toggle
   const toggleMusic = () => {
@@ -57,6 +78,14 @@ export default function App() {
 
   const handleOpenInvitation = () => {
     setHasEntered(true);
+    // Smoothly scroll to the invitation card using Lenis once opened
+    setTimeout(() => {
+      if (window.__lenis) {
+        window.__lenis.resize();
+        window.__lenis.scrollTo(0, { immediate: true });
+      }
+    }, 50);
+
     // Optionally start peaceful background music on user action
     if (audioRef.current && !isPlayingMusic) {
       audioRef.current.play().then(() => {
@@ -96,7 +125,7 @@ export default function App() {
               <span className="cover-tag">Shubha Vivaham</span>
               <h1 className="cover-quote">Two souls, one beautiful journey.</h1>
               <p className="cover-couple">
-                Dr. Akshay S Suresh &amp; Dr. Surya Suresh
+                Dr. Vishnu Prakash U.K. &amp; Dr. Sreelekha E.M.
               </p>
               <button 
                 className="cover-open-btn"
@@ -115,16 +144,13 @@ export default function App() {
         {/* Section 1: Hero Main Invitation Card */}
         <HeroInvitation />
 
-        {/* Section 2: The Wedding Celebration */}
+        {/* Section 2: Person Showcase */}
         <CelebrationSection />
 
-        {/* Section 3: Wedding Details & Muhurtham */}
-        <DetailsSection />
+        {/* Section 3: Wedding Reception Celebrations */}
+        <ReceptionSection />
 
-        {/* Section 4: Venue & Location */}
-        <VenueSection />
-
-        {/* Section 5: Closing Message & Family Blessings */}
+        {/* Section 4: Closing Message */}
         <ClosingSection />
       </main>
 
