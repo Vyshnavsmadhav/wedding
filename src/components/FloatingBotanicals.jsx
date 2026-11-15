@@ -12,22 +12,30 @@ import React, { useMemo } from 'react';
 
 export default function FloatingBotanicals() {
   const particles = useMemo(() => {
-    // 14 carefully tuned elements for an elegant, non-cluttered floating effect
+    // 22 elements distributed across the full viewport width and staggered timing for a seamless continuous flow
     return [
-      { id: 1, type: 'leaf-sage', left: 8, delay: 0, duration: 16, size: 22, rot: 15, drift: 60 },
-      { id: 2, type: 'petal-pink', left: 22, delay: 4, duration: 18, size: 19, rot: 45, drift: -50 },
-      { id: 3, type: 'leaf-beige', left: 38, delay: 1.5, duration: 21, size: 24, rot: -20, drift: 70 },
-      { id: 4, type: 'petal-pink', left: 52, delay: 7, duration: 17, size: 16, rot: 80, drift: 40 },
-      { id: 5, type: 'leaf-sage', left: 68, delay: 3, duration: 20, size: 20, rot: -60, drift: -65 },
-      { id: 6, type: 'leaf-beige', left: 82, delay: 8.5, duration: 22, size: 23, rot: 30, drift: 55 },
-      { id: 7, type: 'petal-pink', left: 92, delay: 2, duration: 19, size: 18, rot: 110, drift: -45 },
-      { id: 8, type: 'leaf-sage', left: 15, delay: 9, duration: 18, size: 18, rot: -40, drift: 50 },
-      { id: 9, type: 'petal-pink', left: 32, delay: 11, duration: 16, size: 17, rot: 65, drift: -40 },
-      { id: 10, type: 'leaf-beige', left: 45, delay: 5.5, duration: 23, size: 21, rot: -15, drift: 80 },
-      { id: 11, type: 'leaf-sage', left: 62, delay: 12, duration: 19, size: 25, rot: 50, drift: -75 },
-      { id: 12, type: 'petal-pink', left: 75, delay: 10, duration: 17, size: 20, rot: -85, drift: 35 },
-      { id: 13, type: 'leaf-beige', left: 88, delay: 13, duration: 22, size: 19, rot: 25, drift: -60 },
-      { id: 14, type: 'petal-pink', left: 5, delay: 6, duration: 20, size: 15, rot: 95, drift: 45 }
+      { id: 1, type: 'leaf-sage', left: 4, delay: 0, duration: 15, size: 22, rot: 15, drift: 60 },
+      { id: 2, type: 'petal-pink', left: 14, delay: 3, duration: 18, size: 19, rot: 45, drift: -50 },
+      { id: 3, type: 'leaf-beige', left: 23, delay: 1.5, duration: 20, size: 24, rot: -20, drift: 70 },
+      { id: 4, type: 'petal-pink', left: 32, delay: 7, duration: 17, size: 16, rot: 80, drift: 40 },
+      { id: 5, type: 'leaf-sage', left: 41, delay: 2, duration: 19, size: 20, rot: -60, drift: -65 },
+      { id: 6, type: 'leaf-beige', left: 50, delay: 8.5, duration: 22, size: 23, rot: 30, drift: 55 },
+      { id: 7, type: 'petal-pink', left: 59, delay: 4.5, duration: 18, size: 18, rot: 110, drift: -45 },
+      { id: 8, type: 'leaf-sage', left: 68, delay: 9, duration: 17, size: 19, rot: -40, drift: 50 },
+      { id: 9, type: 'petal-pink', left: 77, delay: 11, duration: 16, size: 17, rot: 65, drift: -40 },
+      { id: 10, type: 'leaf-beige', left: 86, delay: 5.5, duration: 21, size: 21, rot: -15, drift: 80 },
+      { id: 11, type: 'leaf-sage', left: 95, delay: 1.2, duration: 19, size: 23, rot: 50, drift: -75 },
+      { id: 12, type: 'petal-pink', left: 9, delay: 10, duration: 17, size: 20, rot: -85, drift: 35 },
+      { id: 13, type: 'leaf-beige', left: 18, delay: 13, duration: 22, size: 19, rot: 25, drift: -60 },
+      { id: 14, type: 'petal-pink', left: 28, delay: 6, duration: 19, size: 15, rot: 95, drift: 45 },
+      { id: 15, type: 'leaf-sage', left: 47, delay: 14, duration: 18, size: 21, rot: -30, drift: 40 },
+      { id: 16, type: 'leaf-beige', left: 64, delay: 12.5, duration: 20, size: 22, rot: 70, drift: -55 },
+      { id: 17, type: 'petal-pink', left: 73, delay: 15, duration: 16, size: 18, rot: -50, drift: 65 },
+      { id: 18, type: 'leaf-sage', left: 82, delay: 7.8, duration: 21, size: 20, rot: 40, drift: -35 },
+      { id: 19, type: 'petal-pink', left: 91, delay: 13.5, duration: 17, size: 16, rot: 100, drift: 50 },
+      { id: 20, type: 'leaf-beige', left: 36, delay: 16, duration: 23, size: 24, rot: -70, drift: -60 },
+      { id: 21, type: 'leaf-sage', left: 54, delay: 10.5, duration: 19, size: 19, rot: 20, drift: 45 },
+      { id: 22, type: 'petal-pink', left: 2, delay: 8, duration: 18, size: 17, rot: -10, drift: 30 }
     ];
   }, []);
 

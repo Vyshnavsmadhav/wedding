@@ -252,38 +252,185 @@
   background-color: var(--color-ivory);
 }
 
-/* Outer Invitation Card Frame - Expands to Full Viewport */
+/* Outer Invitation Card Frame - Kerala Watercolor Theme matching reference image */
 .invitation-card-outer {
   position: relative;
   width: 100vw;
   min-height: 100vh;
   max-width: 100%;
-  background-color: var(--color-card-bg);
-  border: 1px solid var(--color-gold);
-  box-shadow: 
-    inset 0 0 0 10px var(--color-card-bg),
-    inset 0 0 0 11px rgba(179, 139, 76, 0.45);
+  background-color: #faf4e8;
+  border: none;
+  box-shadow: none;
   border-radius: 0;
-  padding: 16px 40px 40px 40px;
+  padding: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   animation: heroCardFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   box-sizing: border-box;
 }
 
+/* Kerala Watercolor Frame Layout */
+.kerala-watercolor-theme {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7efe1;
+  padding: 24px 16px;
+}
+
+.kerala-frame-content-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  min-height: 940px;
+  background: url('/kerala-wedding-frame.jpg') no-repeat center center;
+  background-size: 100% 100%;
+  box-shadow: 0 16px 48px rgba(84, 23, 34, 0.12), 0 4px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 380px 32px 100px 32px; /* Center content nicely in parchment open area */
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+@media (max-width: 560px) {
+  .kerala-watercolor-theme {
+    padding: 0;
+  }
+  .kerala-frame-content-wrapper {
+    max-width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 38vh 20px 12vh 20px;
+    background-size: cover;
+  }
+}
+
 /* ==========================================================================
-   FLOATING BOTANICAL LEAVES & PETALS (Strictly bounded to Hero Section)
+   SHIRISHA & VAMSHI WEDDING INVITATION HERO CARD DETAILS
+   ========================================================================== */
+
+.hero-ganesha-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.hero-ganesha-img {
+  width: 64px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(180, 50, 60, 0.2));
+  margin-bottom: 6px;
+}
+
+.hero-ganesha-mantra {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(16px, 2.2vw, 20px);
+  color: #7b1827;
+  letter-spacing: 0.5px;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.hero-solicit-box {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto 18px auto;
+  text-align: center;
+  padding: 4px 8px;
+}
+
+.hero-solicit-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(14px, 1.9vw, 17px);
+  line-height: 1.5;
+  color: #2b1f1a;
+  letter-spacing: 0.2px;
+  margin: 0;
+}
+
+.hero-couple-names-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.hero-person-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.hero-bride-name,
+.hero-groom-name {
+  font-family: 'Great Vibes', 'Cormorant Garamond', cursive;
+  font-size: clamp(34px, 5.2vw, 50px);
+  font-weight: 400;
+  color: #c9184a;
+  line-height: 1.25;
+  margin: 0 0 4px 0;
+  text-shadow: 0 2px 6px rgba(201, 24, 74, 0.15);
+  letter-spacing: 0.5px;
+  word-break: normal;
+  text-align: center;
+}
+
+.hero-with-script {
+  font-family: 'Great Vibes', 'Cormorant Garamond', cursive;
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 400;
+  color: #5e0b1c;
+  line-height: 1;
+  margin: 10px 0 6px 0;
+}
+
+.hero-parent-info {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(13px, 1.7vw, 16px);
+  color: #2b1f1a;
+  line-height: 1.45;
+  margin: 0 auto;
+  max-width: 420px;
+  letter-spacing: 0.2px;
+}
+
+/* ==========================================================================
+   FLOATING BOTANICAL LEAVES & PETALS (Website-wide fixed background overlay)
    ========================================================================== */
 
 .floating-botanicals-layer {
-  position: absolute;
+  position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
   overflow: hidden;
-  z-index: 1; /* Above background, strictly behind .invitation-inner-grid (z-index: 2) */
+  z-index: 999; /* Floats smoothly over all sections without interfering with user interaction */
 }
 
 .botanical-particle {
@@ -344,20 +491,204 @@
 }
 
 /* ==========================================================================
-   HERO STATEMENT (Centered Invitation Heading)
+   EVENTS SCHEDULE SECTION (Traditional Mandap Theme)
    ========================================================================== */
+
+.events-schedule-section {
+  width: 100%;
+  padding: 60px 16px 80px 16px;
+  background-color: var(--color-ivory);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.events-schedule-container {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.schedule-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.schedule-title-script {
+  font-family: 'Great Vibes', 'Cormorant Garamond', cursive;
+  font-size: clamp(40px, 6vw, 56px);
+  color: #7b1827;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.schedule-header-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.ornament-line {
+  width: 45px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #b38b4c, transparent);
+}
+
+.ornament-gem {
+  color: #b38b4c;
+  font-size: 11px;
+}
+
+/* Mandap Wedding Card */
+.schedule-mandap-card {
+  width: 100%;
+  max-width: 440px;
+  min-height: 820px;
+  background: url('/mandap-clean-bg.jpg') no-repeat center center;
+  background-size: 100% 100%;
+  border-radius: 8px;
+  box-shadow: 0 16px 40px rgba(84, 23, 34, 0.12), 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(179, 139, 76, 0.28);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 108px 24px 280px 24px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 500px) {
+  .schedule-mandap-card {
+    min-height: 140vw;
+    padding: 22vw 18px 50vw 18px;
+    background-size: cover;
+  }
+}
+
+.mandap-content-body {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background: transparent;
+  padding: 0;
+}
+
+.ceremony-eyebrow {
+  font-family: var(--font-caps);
+  font-size: clamp(10px, 1.8vw, 12px);
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #7b1827;
+  text-transform: uppercase;
+  margin: 0 0 2px 0;
+}
+
+.ceremony-title-script {
+  font-family: 'Great Vibes', 'Cormorant Garamond', cursive;
+  font-size: clamp(38px, 6.5vw, 50px);
+  color: #7b1827;
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 6px 0;
+  text-shadow: 0 1px 3px rgba(123, 24, 39, 0.1);
+}
+
+.ceremony-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(13px, 2vw, 15px);
+  line-height: 1.4;
+  color: #4a342b;
+  margin: 0 0 14px 0;
+}
+
+.ceremony-date-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.date-side-day,
+.date-side-month {
+  font-family: var(--font-serif);
+  font-size: clamp(15px, 2.4vw, 18px);
+  font-weight: 600;
+  color: #541722;
+  letter-spacing: 0.3px;
+}
+
+.date-center-num {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4.5vw, 36px);
+  font-weight: 700;
+  color: #541722;
+  line-height: 1;
+  padding: 0 10px;
+  border-left: 1.5px solid #541722;
+  border-right: 1.5px solid #541722;
+}
+
+.ceremony-time {
+  font-family: var(--font-serif);
+  font-size: clamp(13px, 2vw, 15px);
+  font-weight: 600;
+  color: #7b1827;
+  letter-spacing: 0.5px;
+  margin: 0 0 12px 0;
+}
+
+.ceremony-venue-box {
+  padding-top: 6px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.venue-label {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: clamp(14px, 2vw, 16px);
+  color: #541722;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.venue-name {
+  font-family: var(--font-serif);
+  font-size: clamp(13px, 1.9vw, 15px);
+  font-weight: 600;
+  color: #3b0f17;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.venue-location {
+  font-family: var(--font-serif);
+  font-size: clamp(13px, 1.8vw, 14px);
+  color: #6e5648;
+  margin: 2px 0 0 0;
+}
 
 .hero-statement-container {
   position: relative;
-  z-index: 2; /* Sits above the floating botanicals layer (z-index: 1) */
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  text-align: left;
-  padding: 0 48px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
   width: 100%;
-  max-width: 1300px;
   margin: 0 auto;
   pointer-events: auto;
   animation: heroStatementFade 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -404,107 +735,92 @@
 
 .hero-statement-subtitle {
   font-family: var(--font-serif);
-  font-size: clamp(38px, 5.2vw, 76px);
+  font-size: clamp(28px, 4vw, 36px);
   font-weight: 500;
   font-style: italic;
-  color: var(--color-maroon);
+  color: #581825;
   letter-spacing: 0.5px;
   line-height: 1.25;
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
-  margin-bottom: 12px;
+  margin-bottom: 4px;
 }
 
 .hero-date-detail {
   display: inline-flex;
   align-items: baseline;
-  gap: 10px;
-  border-bottom: 1.5px solid var(--color-text-primary);
-  padding-bottom: 4px;
-  margin-top: 16px;
+  justify-content: center;
+  gap: 8px;
+  border-bottom: 1.5px solid #2d241e;
+  padding-bottom: 2px;
+  margin-top: 6px;
+  margin-bottom: 20px;
   align-self: center;
 }
 
 .hero-date-numbers {
   font-family: var(--font-caps);
-  font-size: clamp(26px, 3.2vw, 44px);
+  font-size: clamp(24px, 3.2vw, 30px);
   font-weight: 700;
-  color: var(--color-text-primary);
+  color: #2d241e;
   letter-spacing: -0.5px;
   line-height: 1;
 }
 
 .hero-date-day {
   font-family: var(--font-sans);
-  font-size: clamp(18px, 2.2vw, 28px);
-  font-weight: 500;
-  color: var(--color-text-primary);
+  font-size: clamp(16px, 2.2vw, 19px);
+  font-weight: 600;
+  color: #2d241e;
   line-height: 1;
 }
 
-/* ==========================================================================
-   HERO 3:4 OVERLAPPING PHOTO & BESIDE DETAILS COMPOSITION
-   ========================================================================== */
-
-.hero-main-row {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  align-items: center;
-  gap: 40px;
-  width: 100%;
-  margin-top: 24px;
-}
-
-/* Event Ceremony & Reception Details (Beside Pictures) */
+/* Kerala Frame Event Ceremony & Reception Details */
 .hero-event-details-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 24px 32px;
-}
-
-.event-details-flourish {
-  margin-bottom: 16px;
-  display: flex;
-  justify-content: center;
-  opacity: 0.85;
+  padding: 0;
+  width: 100%;
 }
 
 .event-detail-line {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 500;
-  line-height: 1.6;
+  line-height: 1.55;
   margin-bottom: 12px;
-  color: var(--color-text-primary);
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  color: #581825;
 }
 
 .solemnized-line {
-  font-size: clamp(20px, 2.2vw, 29px);
-  color: var(--color-maroon);
+  font-size: clamp(16px, 2.1vw, 19px);
+  color: #581825;
+  max-width: 380px;
 }
 
 .muhurtham-line {
-  font-size: clamp(19px, 2.1vw, 27px);
-  color: var(--color-maroon-dark);
+  font-size: clamp(15px, 2vw, 18px);
+  color: #581825;
 }
 
 .thalikettu-line {
-  font-size: clamp(20px, 2.2vw, 29px);
-  color: var(--color-maroon);
+  font-size: clamp(15px, 2vw, 18px);
+  color: #581825;
+  max-width: 360px;
 }
 
 .reception-line {
-  font-size: clamp(19px, 2.1vw, 27px);
-  color: var(--color-text-primary);
+  font-size: clamp(15px, 2vw, 18px);
+  color: #581825;
+  max-width: 360px;
 }
 
 .block-location {
   display: block;
   font-weight: 600;
-  color: var(--color-maroon-dark);
-  margin-top: 4px;
+  color: #3b0f17;
+  margin-top: 3px;
 }
 
 .hero-photos-composition {

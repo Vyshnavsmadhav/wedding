@@ -5,10 +5,12 @@
 export const weddingData = {
   couple: {
     groom: "Dr. Vishnu Prakash U.K.",
+    groomParents: "S/o Sri Chintha Anjaneyulu & Smt. Chintha Aruna",
     bride: "Dr. Sreelekha E.M.",
-    shortNames: "Vishnu & Sreelekha",
-    tagline: "Two souls, one beautiful journey.",
-    subtagline: "Shubha Vivaham"
+    brideParents: "D/o Sri Velineni Srinivasa Rao & Smt. Velineni Sunitha Rani",
+    shortNames: "Dr. Vishnu & Dr. Sreelekha",
+    tagline: "Together with our families, we solicit your gracious presence and blessings on the auspicious occasion of the wedding celebration of",
+    subtagline: "|| Shree Ganeshay Namaha ||"
   },
   dates: {
     gregorian: "13 & 15 DECEMBER 2026",

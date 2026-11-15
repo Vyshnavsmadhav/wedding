@@ -48,9 +48,9 @@ export default function ClosingSection() {
           </div>
 
           <div className="closing-couple-signature arrival-item" style={{ '--delay': '0.55s' }}>
-            <span className="signature-couple-name">{couple.groom}</span>
+            <span className="signature-couple-name">Dr. Vishnu Prakash U.K.</span>
             <span className="signature-ampersand">&amp;</span>
-            <span className="signature-couple-name">{couple.bride}</span>
+            <span className="signature-couple-name">Dr. Sreelekha E.M.</span>
           </div>
 
           <p className="rsvp-note-text arrival-item" style={{ '--delay': '0.65s' }}>

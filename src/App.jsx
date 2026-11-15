@@ -4,10 +4,12 @@ import 'lenis/dist/lenis.css';
 import { ArrowRight } from 'lucide-react';
 
 import HeroInvitation from './components/HeroInvitation';
+import EventsScheduleSection from './components/EventsScheduleSection';
 import CelebrationSection from './components/CelebrationSection';
 import ReceptionSection from './components/ReceptionSection';
 import ClosingSection from './components/ClosingSection';
 import MusicPlayer from './components/MusicPlayer';
+import FloatingBotanicals from './components/FloatingBotanicals';
 import { useScrollArrival } from './hooks/useScrollArrival';
 import { weddingData } from './weddingData';
 import './App.css';
@@ -122,8 +124,8 @@ export default function App() {
           />
           <div className="cover-video-overlay">
             <div className="cover-content">
-              <span className="cover-tag">Shubha Vivaham</span>
-              <h1 className="cover-quote">Two souls, one beautiful journey.</h1>
+              <span className="cover-tag">|| Shree Ganeshay Namaha ||</span>
+              <h1 className="cover-quote">Together with our families, we solicit your gracious presence and blessings on the auspicious occasion of the wedding celebration of</h1>
               <p className="cover-couple">
                 Dr. Vishnu Prakash U.K. &amp; Dr. Sreelekha E.M.
               </p>
@@ -139,18 +141,24 @@ export default function App() {
         </div>
       )}
 
+      {/* Global floating leaves and petals layer across the full website */}
+      <FloatingBotanicals />
+
       {/* Main Invitation Page Content */}
       <main className="main-invitation-container">
         {/* Section 1: Hero Main Invitation Card */}
         <HeroInvitation />
 
-        {/* Section 2: Person Showcase */}
+        {/* Section 2: Events Schedule Mandap Theme (Right after Hero) */}
+        <EventsScheduleSection />
+
+        {/* Section 3: Person Showcase */}
         <CelebrationSection />
 
-        {/* Section 3: Wedding Reception Celebrations */}
+        {/* Section 4: Wedding Reception Celebrations */}
         <ReceptionSection />
 
-        {/* Section 4: Closing Message */}
+        {/* Section 5: Closing Message */}
         <ClosingSection />
       </main>
 

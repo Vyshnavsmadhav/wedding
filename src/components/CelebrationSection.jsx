@@ -9,7 +9,7 @@ export default function CelebrationSection() {
         
         {/* Couple Profiles Grid: Groom Card & Bride Card */}
         <div className="couple-profiles-vertical">
-          {/* Groom Showcase (Photo + Beside Details) */}
+          {/* Groom Showcase (Details on Top) */}
           <div className="person-beside-showcase">
             <div className="person-photo-frame arrival-item" style={{ '--delay': '0.15s' }}>
               <div className="person-photo-wrapper">
@@ -24,10 +24,8 @@ export default function CelebrationSection() {
 
             <div className="person-details-box arrival-item" style={{ '--delay': '0.35s' }}>
               <h2 className="person-name-script">Dr. Vishnu Prakash U.K.</h2>
-              <p className="person-ancestry-text">
-                [(Grandson of Late Shri P. Ramanujan and Sridevi U. K.
-                <br />
-                and Late Shri N. P. Viswanatha Menon and Smt Rugmini Amma)]
+              <p className="person-family-subtitle">
+                S/o Sri Chintha Anjaneyulu &amp; Smt. Chintha Aruna
               </p>
             </div>
           </div>
@@ -41,12 +39,7 @@ export default function CelebrationSection() {
             <div className="person-details-box arrival-item" style={{ '--delay': '0.25s' }}>
               <h2 className="person-name-script">Dr. Sreelekha E.M.</h2>
               <p className="person-family-subtitle">
-                Daughter of Mr. Sreenivas MT &amp; Mrs. Rugmini EM
-              </p>
-              <p className="person-ancestry-text">
-                (Grand daughter of Late Shri Madhavan Nair and Smt Padmavathi Amma
-                <br />
-                and Late Smt. E.M. Kamaladevi Amma and Shri M M Kunhan Nair)
+                D/o Sri Velineni Srinivasa Rao &amp; Smt. Velineni Sunitha Rani
               </p>
             </div>
 
