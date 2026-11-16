@@ -647,7 +647,7 @@
 .schedule-mandap-card {
   width: 100%;
   max-width: 440px;
-  aspect-ratio: 324 / 599;
+  aspect-ratio: 362 / 665;
   background: url('/mandap-arch-clean-card.jpg') no-repeat center center;
   background-size: 100% 100%;
   border-radius: 18px;
@@ -658,13 +658,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 21% 16px 0 16px;
+  padding: 19% 16px 0 16px;
   box-sizing: border-box;
 }
 
 @media (max-width: 500px) {
   .schedule-mandap-card {
-    padding: 20.5% 12px 0 12px;
+    padding: 18.5% 12px 0 12px;
   }
 }
 
