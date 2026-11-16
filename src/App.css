@@ -798,13 +798,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 42% 16px 6.5% 16px;
+  padding: 75% 16px 6% 16px;
   box-sizing: border-box;
 }
 
 @media (max-width: 500px) {
   .schedule-temple-card {
-    padding: 41% 12px 6% 12px;
+    padding: 74% 12px 5.5% 12px;
   }
 }
 
@@ -1043,13 +1043,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 44% 16px 6% 16px;
+  padding: 68% 16px 6% 16px;
   box-sizing: border-box;
 }
 
 @media (max-width: 500px) {
   .reception-stage-card {
-    padding: 43% 12px 5.5% 12px;
+    padding: 67% 12px 5.5% 12px;
   }
 }
 
