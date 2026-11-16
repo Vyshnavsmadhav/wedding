@@ -1,10 +1,21 @@
 import React from 'react';
+import { MapPin } from 'lucide-react';
 
 export default function EventsScheduleSection() {
   return (
     <section className="events-schedule-section" id="schedule">
       <div className="events-schedule-container">
         
+        {/* Section Header: Events Schedule with Lotus Ornament */}
+        <div className="schedule-header arrival-item" style={{ '--delay': '0.1s' }}>
+          <h2 className="schedule-title-script">Events Schedule</h2>
+          <div className="schedule-header-ornament">
+            <span className="ornament-line"></span>
+            <span className="ornament-flower">✿</span>
+            <span className="ornament-line"></span>
+          </div>
+        </div>
+
         {/* Traditional Mandap Watercolor Card */}
         <div className="schedule-mandap-card arrival-item" style={{ '--delay': '0.15s' }}>
           
@@ -43,7 +54,21 @@ export default function EventsScheduleSection() {
 
         </div>
 
+        {/* View Location Action Under the Card */}
+        <div className="schedule-under-card-action arrival-item" style={{ '--delay': '0.55s' }}>
+          <a 
+            href="https://maps.google.com/?q=Nottanalukkal+Bhagavathy+Temple+Kuttippuram"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="schedule-mandap-map-btn"
+          >
+            <MapPin size={15} />
+            <span>View on Google Maps</span>
+          </a>
+        </div>
+
       </div>
     </section>
   );
 }
+

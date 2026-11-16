@@ -56,19 +56,6 @@ export default function ClosingSection() {
           <p className="rsvp-note-text arrival-item" style={{ '--delay': '0.65s' }}>
             {closing.rsvpNote}
           </p>
-
-          {/* Interactive Blessings Button for user engagement */}
-          <div className="blessing-action-box arrival-item" style={{ '--delay': '0.75s' }}>
-            <button
-              onClick={handleSendBlessing}
-              disabled={blessingSent}
-              className={`blessing-btn ${blessingSent ? 'blessed disabled' : ''}`}
-              aria-label={blessingSent ? "Warm blessings showered" : "Shower blessings on the couple"}
-            >
-              <Heart size={18} className={`heart-icon ${blessingSent ? 'fill-current scale-110' : ''}`} />
-              <span>{blessingSent ? 'Heartfelt Blessings Showered! ✨' : 'Shower Warm Blessings'}</span>
-            </button>
-          </div>
         </div>
 
       </div>

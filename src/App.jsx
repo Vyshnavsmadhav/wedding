@@ -5,8 +5,8 @@ import { ArrowRight } from 'lucide-react';
 
 import HeroInvitation from './components/HeroInvitation';
 import EventsScheduleSection from './components/EventsScheduleSection';
-import CelebrationSection from './components/CelebrationSection';
-import ReceptionSection from './components/ReceptionSection';
+import ReceptionMandapSection from './components/ReceptionMandapSection';
+import SlidingCardGallery from './components/SlidingCardGallery';
 import ClosingSection from './components/ClosingSection';
 import MusicPlayer from './components/MusicPlayer';
 import FloatingBotanicals from './components/FloatingBotanicals';
@@ -152,11 +152,11 @@ export default function App() {
         {/* Section 2: Events Schedule Mandap Theme (Right after Hero) */}
         <EventsScheduleSection />
 
-        {/* Section 3: Person Showcase */}
-        <CelebrationSection />
+        {/* Section 3: Reception Mandap Theme (Evening Celebrations) */}
+        <ReceptionMandapSection />
 
-        {/* Section 4: Wedding Reception Celebrations */}
-        <ReceptionSection />
+        {/* Section 4: 3D Sliding Window Photo Gallery */}
+        <SlidingCardGallery />
 
         {/* Section 5: Closing Message */}
         <ClosingSection />
