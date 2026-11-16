@@ -853,7 +853,7 @@
 .reception-mandap-card {
   width: 100%;
   max-width: 440px;
-  aspect-ratio: 326 / 560;
+  aspect-ratio: 327 / 582;
   background: url('/reception-arch-clean-card.jpg') no-repeat center center;
   background-size: 100% 100%;
   border-radius: 18px;
@@ -864,13 +864,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 14% 16px 0 16px;
+  padding: 18% 16px 0 16px;
   box-sizing: border-box;
 }
 
 @media (max-width: 500px) {
   .reception-mandap-card {
-    padding: 13% 12px 0 12px;
+    padding: 17% 12px 0 12px;
   }
 }
 
