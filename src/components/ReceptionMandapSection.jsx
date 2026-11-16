@@ -13,11 +13,11 @@ export default function ReceptionMandapSection() {
           <span className="reception-ornament-line"></span>
         </div>
 
-        {/* Elegant Reception Mandap Watercolor Card */}
-        <div className="reception-mandap-card arrival-item" style={{ '--delay': '0.15s' }}>
+        {/* Elegant Reception Stage Card */}
+        <div className="reception-stage-card arrival-item" style={{ '--delay': '0.15s' }}>
           
           {/* Text Container Positioned Inside Arch */}
-          <div className="reception-mandap-content-body">
+          <div className="reception-stage-content-body">
             
             <p className="reception-card-eyebrow arrival-item" style={{ '--delay': '0.2s' }}>
               YOU ARE CORDIALLY INVITED TO OUR
@@ -57,19 +57,19 @@ export default function ReceptionMandapSection() {
 
           </div>
 
-        </div>
+          {/* Integrated Action Button inside bottom ticket outline */}
+          <div className="reception-ticket-btn-wrapper arrival-item" style={{ '--delay': '0.55s' }}>
+            <a 
+              href="https://maps.google.com/?q=Shifa+Convention+Center+Mannarkkad+Road+Perinthalmanna"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="reception-ticket-map-btn"
+            >
+              <MapPin size={15} />
+              <span>View on Google Maps</span>
+            </a>
+          </div>
 
-        {/* View Location Action Relocated Under the Card */}
-        <div className="reception-under-card-action arrival-item" style={{ '--delay': '0.55s' }}>
-          <a 
-            href="https://maps.google.com/?q=Shifa+Convention+Center+Mannarkkad+Road+Perinthalmanna"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="reception-mandap-map-btn"
-          >
-            <MapPin size={15} />
-            <span>View on Google Maps</span>
-          </a>
         </div>
 
       </div>
