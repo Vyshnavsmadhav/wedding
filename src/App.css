@@ -385,10 +385,11 @@
 }
 
 .hero-ganesha-img {
-  width: 64px;
+  width: 58px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 2px 5px rgba(180, 50, 60, 0.2));
+  background: transparent;
+  filter: drop-shadow(0 2px 4px rgba(123, 24, 39, 0.22));
   margin-bottom: 6px;
 }
 
