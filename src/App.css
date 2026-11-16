@@ -787,7 +787,7 @@
 .schedule-temple-card {
   width: 100%;
   max-width: 440px;
-  aspect-ratio: 362 / 657;
+  aspect-ratio: 716 / 1306;
   background: url('/temple-ticket-card-clean.jpg') no-repeat center center;
   background-size: 100% 100%;
   border-radius: 18px;
@@ -798,13 +798,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 74% 20px 4% 20px;
+  padding: 44% 20px 4% 20px;
   box-sizing: border-box;
 }
 
 @media (max-width: 500px) {
   .schedule-temple-card {
-    padding: 73% 16px 3.5% 16px;
+    padding: 44% 16px 3.5% 16px;
   }
 }
 
@@ -814,7 +814,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 0;
+  min-height: 28%;
 }
 
 .temple-muhurtham-label {
@@ -824,7 +825,7 @@
   letter-spacing: 3.5px;
   color: #a4713c;
   text-transform: uppercase;
-  margin: 0 0 2px 0;
+  margin: 0 0 1px 0;
 }
 
 .temple-wedding-script {
@@ -849,10 +850,10 @@
 .temple-year-line {
   font-family: var(--font-serif);
   font-size: clamp(12px, 1.8vw, 14px);
-  letter-spacing: 4px;
+  letter-spacing: 5px;
   color: #a4713c;
   font-weight: 600;
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
 }
 
 .temple-time-pill {
@@ -877,7 +878,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 14px;
+  margin-top: 4%;
 }
 
 .temple-venue-title {
