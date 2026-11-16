@@ -73,7 +73,7 @@ export default function HeroInvitation() {
         {/* View Location Action Under the Hero Card */}
         <div className="hero-under-card-action arrival-item" style={{ '--delay': '0.55s' }}>
           <a 
-            href="https://maps.google.com/?q=Nottanalukkal+Bhagavathy+Temple+Kuttippuram"
+            href="https://maps.google.com/?q=Olive+Convention+Center+Moodal+Kuttippuram"
             target="_blank"
             rel="noopener noreferrer"
             className="schedule-mandap-map-btn"
