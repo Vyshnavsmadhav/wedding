@@ -139,24 +139,6 @@ export default function CherishedMemoriesSection() {
             >
               &#10095;
             </button>
-
-            {/* Photo Caption & Counter */}
-            <div className="cherished-card-footer">
-              <p className="cherished-photo-title">{PHOTOS[currentIndex].title}</p>
-              <p className="cherished-photo-subtext">{PHOTOS[currentIndex].caption}</p>
-              
-              {/* Pagination Dots */}
-              <div className="cherished-dots-container">
-                {PHOTOS.map((_, idx) => (
-                  <button
-                    key={idx}
-                    className={`cherished-dot ${idx === currentIndex ? 'active' : ''}`}
-                    onClick={() => handleSelect(idx)}
-                    aria-label={`Go to slide ${idx + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 
