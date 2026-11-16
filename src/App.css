@@ -783,12 +783,12 @@
   font-size: 11px;
 }
 
-/* Mandap Wedding Card */
-.schedule-mandap-card {
+/* Traditional Kerala Temple Card */
+.schedule-temple-card {
   width: 100%;
   max-width: 440px;
-  aspect-ratio: 362 / 665;
-  background: url('/mandap-arch-clean-card.jpg') no-repeat center center;
+  aspect-ratio: 362 / 657;
+  background: url('/temple-ticket-card-clean.jpg') no-repeat center center;
   background-size: 100% 100%;
   border-radius: 18px;
   box-shadow: 0 16px 40px rgba(84, 23, 34, 0.12), 0 4px 16px rgba(0, 0, 0, 0.06);
@@ -797,18 +797,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding: 19% 16px 0 16px;
+  justify-content: space-between;
+  padding: 42% 16px 6.5% 16px;
   box-sizing: border-box;
 }
 
 @media (max-width: 500px) {
-  .schedule-mandap-card {
-    padding: 18.5% 12px 0 12px;
+  .schedule-temple-card {
+    padding: 41% 12px 6% 12px;
   }
 }
 
-.mandap-content-body {
+.temple-content-body {
   width: 100%;
   max-width: 310px;
   text-align: center;
@@ -818,6 +818,44 @@
   box-sizing: border-box;
   background: transparent;
   padding: 0;
+}
+
+.temple-ticket-btn-wrapper {
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.temple-ticket-map-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 260px;
+  padding: 10px 20px;
+  background: transparent;
+  color: #7b1827;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  transition: all 0.3s ease;
+  border: 1.5px solid #b38b4c;
+  box-shadow: 0 2px 8px rgba(179, 139, 76, 0.15);
+}
+
+.temple-ticket-map-btn:hover {
+  background: linear-gradient(135deg, #7b1827 0%, #541722 100%);
+  color: #fff;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(84, 23, 34, 0.25);
 }
 
 .ceremony-eyebrow {

@@ -16,11 +16,11 @@ export default function EventsScheduleSection() {
           </div>
         </div>
 
-        {/* Traditional Mandap Watercolor Card */}
-        <div className="schedule-mandap-card arrival-item" style={{ '--delay': '0.15s' }}>
+        {/* Traditional Temple Card Theme */}
+        <div className="schedule-temple-card arrival-item" style={{ '--delay': '0.15s' }}>
           
-          {/* Center Ceremony Invitation Content on Clean Canvas */}
-          <div className="mandap-content-body">
+          {/* Ceremony Invitation Content on Clean Canvas */}
+          <div className="temple-content-body">
             <p className="ceremony-eyebrow arrival-item" style={{ '--delay': '0.2s' }}>
               JOIN US FOR THE
             </p>
@@ -52,19 +52,19 @@ export default function EventsScheduleSection() {
             </div>
           </div>
 
-        </div>
+          {/* Integrated Action Button in the bottom ticket space */}
+          <div className="temple-ticket-btn-wrapper arrival-item" style={{ '--delay': '0.55s' }}>
+            <a 
+              href="https://maps.google.com/?q=Shifa+Convention+Center+Mannarkkad+Road+Perinthalmanna"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="temple-ticket-map-btn"
+            >
+              <MapPin size={15} />
+              <span>View on Google Maps</span>
+            </a>
+          </div>
 
-        {/* View Location Action Under the Card */}
-        <div className="schedule-under-card-action arrival-item" style={{ '--delay': '0.55s' }}>
-          <a 
-            href="https://maps.google.com/?q=Shifa+Convention+Center+Mannarkkad+Road+Perinthalmanna"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="schedule-mandap-map-btn"
-          >
-            <MapPin size={15} />
-            <span>View on Google Maps</span>
-          </a>
         </div>
 
       </div>
