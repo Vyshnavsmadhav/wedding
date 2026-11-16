@@ -17,6 +17,7 @@ import './App.css';
 export default function App() {
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
   const [hasEntered, setHasEntered] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const audioRef = useRef(null);
   const videoRef = useRef(null);
@@ -104,14 +105,14 @@ export default function App() {
   };
 
   const handleOpenInvitation = () => {
-    setHasEntered(true);
-    // Smoothly scroll to the invitation card using Lenis once opened
-    setTimeout(() => {
-      if (window.__lenis) {
-        window.__lenis.resize();
-        window.__lenis.scrollTo(0, { immediate: true });
-      }
-    }, 50);
+    if (isTransitioning || hasEntered) return;
+    setIsTransitioning(true);
+
+    // Give Lenis the signal to start immediately
+    if (window.__lenis) {
+      window.__lenis.start();
+      window.__lenis.resize();
+    }
 
     // Optionally start peaceful background music on user action
     if (audioRef.current && !isPlayingMusic) {
@@ -121,6 +122,16 @@ export default function App() {
         console.warn('Audio auto-start hindered by browser:', err);
       });
     }
+
+    // Fluid cross-fade timeout allowing smooth blending before unmounting cover
+    setTimeout(() => {
+      setHasEntered(true);
+      setIsTransitioning(false);
+      if (window.__lenis) {
+        window.__lenis.resize();
+        window.__lenis.scrollTo(0, { immediate: true });
+      }
+    }, 1100);
   };
 
   return (
@@ -136,9 +147,9 @@ export default function App() {
         <source src="/wedding-music.mp3" type="audio/mpeg" />
       </audio>
 
-      {/* Video Cover Landing Screen */}
+      {/* Video Cover Landing Screen with Fluid Cross-fade Exit */}
       {!hasEntered && (
-        <div className={`video-cover-screen ${isVideoPlaying ? 'video-active' : 'envelope-active'}`}>
+        <div className={`video-cover-screen ${isVideoPlaying ? 'video-active' : 'envelope-active'} ${isTransitioning ? 'cover-dissolving' : ''}`}>
           <video
             ref={videoRef}
             className="cover-video"
