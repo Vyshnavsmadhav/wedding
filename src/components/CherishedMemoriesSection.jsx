@@ -123,22 +123,46 @@ export default function CherishedMemoriesSection() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
 
-            {/* Carousel Navigation Arrows */}
+        {/* Navigation Bar Under Photo Collection (Arrows + Diamond Indicators + Swipe To Explore) */}
+        <div className="cherished-bottom-nav arrival-item" style={{ '--delay': '0.3s' }}>
+          <div className="cherished-nav-row">
+            {/* Left Circular Arrow */}
             <button 
-              className="cherished-nav-btn prev-btn" 
+              className="cherished-circle-btn prev-btn" 
               onClick={handlePrev}
               aria-label="Previous photo"
             >
               &#10094;
             </button>
+
+            {/* Diamond Shaped Indicators */}
+            <div className="cherished-diamond-indicators">
+              {PHOTOS.map((_, idx) => (
+                <button
+                  key={idx}
+                  className={`cherished-diamond-dot ${idx === currentIndex ? 'active' : ''}`}
+                  onClick={() => handleSelect(idx)}
+                  aria-label={`Go to photo ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Right Circular Arrow */}
             <button 
-              className="cherished-nav-btn next-btn" 
+              className="cherished-circle-btn next-btn" 
               onClick={handleNext}
               aria-label="Next photo"
             >
               &#10095;
             </button>
+          </div>
+
+          {/* Swipe to explore subtext */}
+          <div className="cherished-swipe-hint">
+            SWIPE TO EXPLORE
           </div>
         </div>
 

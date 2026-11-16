@@ -1433,98 +1433,100 @@
 }
 
 /* Navigation Arrow Buttons */
-.cherished-nav-btn {
-  position: absolute;
-  top: 42%;
-  transform: translateY(-50%);
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(179, 139, 76, 0.4);
-  color: var(--color-burgundy);
-  font-size: 16px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 10;
-  box-shadow: 0 4px 14px rgba(84, 23, 34, 0.18);
-  transition: all 0.25s ease;
-}
+/* ==========================================================================
+   CHERISHED MEMORIES BOTTOM NAVIGATION (Matching reference snapshot)
+   ========================================================================== */
 
-.cherished-nav-btn:hover {
-  background: #ffffff;
-  color: var(--color-gold);
-  transform: translateY(-50%) scale(1.08);
-  box-shadow: 0 6px 18px rgba(84, 23, 34, 0.28);
-}
-
-.cherished-nav-btn.prev-btn {
-  left: 6px;
-}
-
-.cherished-nav-btn.next-btn {
-  right: 6px;
-}
-
-/* Card Footer: Title, Caption, Dots */
-.cherished-card-footer {
+.cherished-bottom-nav {
   width: 100%;
-  text-align: center;
-  padding-top: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin-top: 24px;
 }
 
-.cherished-photo-title {
-  font-family: var(--font-primary, 'Cinzel', serif);
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--color-burgundy);
-  letter-spacing: 0.05em;
-  margin: 0 0 4px 0;
-}
-
-.cherished-photo-subtext {
-  font-family: var(--font-secondary, 'Cormorant Garamond', serif);
-  font-size: 0.92rem;
-  font-style: italic;
-  color: #6d5b52;
-  margin: 0 0 10px 0;
-  max-width: 90%;
-  line-height: 1.35;
-}
-
-/* Pagination Dots */
-.cherished-dots-container {
+.cherished-nav-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin-top: 2px;
+  gap: 18px;
 }
 
-.cherished-dot {
-  width: 8px;
-  height: 8px;
+/* Circular Arrow Buttons with Gold Outline */
+.cherished-circle-btn {
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  border: 1px solid var(--color-gold);
-  background: transparent;
-  padding: 0;
+  background: #ffffff;
+  border: 1.5px solid rgba(197, 160, 89, 0.75);
+  color: var(--color-burgundy);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(84, 23, 34, 0.08);
+  transition: all 0.25s ease;
+  user-select: none;
 }
 
-.cherished-dot.active {
+.cherished-circle-btn:hover {
+  background: #FCF9F2;
+  border-color: var(--color-burgundy);
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(84, 23, 34, 0.16);
+}
+
+.cherished-circle-btn:active {
+  transform: scale(0.96);
+}
+
+/* Diamond Shaped Indicators Row */
+.cherished-diamond-indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Diamond Indicator Buttons */
+.cherished-diamond-dot {
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  background: transparent;
+  border: 1.5px solid rgba(197, 160, 89, 0.85);
+  border-radius: 1px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cherished-diamond-dot:hover {
+  border-color: var(--color-burgundy);
+  transform: rotate(45deg) scale(1.2);
+}
+
+.cherished-diamond-dot.active {
   background: var(--color-burgundy);
   border-color: var(--color-burgundy);
-  width: 22px;
-  border-radius: 6px;
+  transform: rotate(45deg) scale(1.3);
+  box-shadow: 0 2px 8px rgba(84, 23, 34, 0.3);
+}
+
+/* "SWIPE TO EXPLORE" Text */
+.cherished-swipe-hint {
+  font-family: var(--font-primary, 'Cinzel', serif);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  letter-spacing: 0.22em;
+  margin-top: 14px;
+  text-transform: uppercase;
+  user-select: none;
+  opacity: 0.9;
 }
 
 /* ==========================================================================
