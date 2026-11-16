@@ -7,7 +7,7 @@ import HeroInvitation from './components/HeroInvitation';
 import CountdownSection from './components/CountdownSection';
 import EventsScheduleSection from './components/EventsScheduleSection';
 import ReceptionMandapSection from './components/ReceptionMandapSection';
-import SlidingCardGallery from './components/SlidingCardGallery';
+import CherishedMemoriesSection from './components/CherishedMemoriesSection';
 import ClosingSection from './components/ClosingSection';
 import MusicPlayer from './components/MusicPlayer';
 import FloatingBotanicals from './components/FloatingBotanicals';
@@ -200,8 +200,8 @@ export default function App() {
         {/* Section 3: Reception Mandap Theme (Evening Celebrations) */}
         <ReceptionMandapSection />
 
-        {/* Section 4: 3D Sliding Window Photo Gallery */}
-        <SlidingCardGallery />
+        {/* Section 4: Cherished Memory Arch Portrait */}
+        <CherishedMemoriesSection />
 
         {/* Section 5: Closing Message */}
         <ClosingSection />

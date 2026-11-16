@@ -1241,6 +1241,54 @@
 }
 
 /* ==========================================================================
+   CHERISHED MEMORIES ARCH PORTRAIT SECTION
+   ========================================================================== */
+
+.cherished-memories-section {
+  width: 100%;
+  padding: 60px 16px 80px 16px;
+  background-color: var(--color-ivory);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cherished-frame-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.cherished-arch-frame {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(84, 23, 34, 0.16), 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(179, 139, 76, 0.35);
+  background: #ffffff;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.cherished-arch-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(84, 23, 34, 0.22);
+}
+
+.cherished-arch-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* ==========================================================================
    SLIDING CARD WINDOW GALLERY (3D Curved Sliding Window Component)
    ========================================================================== */
 
