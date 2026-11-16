@@ -598,6 +598,138 @@
 }
 
 /* ==========================================================================
+   COUNTDOWN TIMER SECTION (Directly following Hero Invitation)
+   ========================================================================== */
+
+.countdown-section {
+  width: 100%;
+  padding: 40px 16px 20px 16px;
+  background-color: var(--color-ivory);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.countdown-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background: #f7eedd;
+  border: 1px solid rgba(179, 139, 76, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(84, 23, 34, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 32px 20px 28px 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Elegant Mandala vector backdrop */
+.countdown-mandala-bg {
+  position: absolute;
+  inset: -20px;
+  background-image: 
+    radial-gradient(circle at center, transparent 40%, rgba(247, 238, 221, 0.6) 80%),
+    radial-gradient(circle, transparent 20%, rgba(197, 160, 89, 0.12) 21%, transparent 22%),
+    radial-gradient(circle, transparent 35%, rgba(197, 160, 89, 0.15) 36%, transparent 37%),
+    radial-gradient(circle, transparent 52%, rgba(197, 160, 89, 0.18) 53%, transparent 54%),
+    radial-gradient(circle, transparent 70%, rgba(197, 160, 89, 0.12) 71%, transparent 72%);
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.countdown-header-box {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 22px;
+}
+
+.countdown-eyebrow {
+  font-family: var(--font-caps);
+  font-size: clamp(9px, 1.8vw, 11px);
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #7b1827;
+  text-transform: uppercase;
+  margin: 0 0 2px 0;
+}
+
+.countdown-title-script {
+  font-family: 'Great Vibes', 'Cormorant Garamond', cursive;
+  font-size: clamp(34px, 5.5vw, 44px);
+  color: #7b1827;
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(123, 24, 39, 0.12);
+}
+
+/* 4 Arch Window Timer Cards */
+.countdown-timer-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.countdown-arch-card {
+  background: #ffffff;
+  border: 1px solid rgba(179, 139, 76, 0.3);
+  border-top-left-radius: 42px;
+  border-top-right-radius: 42px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: 0 4px 12px rgba(84, 23, 34, 0.06);
+  padding: 18px 6px 14px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.countdown-arch-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(84, 23, 34, 0.1);
+}
+
+.countdown-num {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 4.2vw, 34px);
+  font-weight: 600;
+  color: #7b1827;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.countdown-label {
+  font-family: var(--font-caps);
+  font-size: clamp(8px, 1.4vw, 9.5px);
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  color: #8b6b55;
+  text-transform: uppercase;
+}
+
+@media (max-width: 420px) {
+  .countdown-timer-grid {
+    gap: 6px;
+  }
+  .countdown-arch-card {
+    padding: 14px 4px 12px 4px;
+    border-top-left-radius: 36px;
+    border-top-right-radius: 36px;
+  }
+}
+
+/* ==========================================================================
    EVENTS SCHEDULE SECTION (Traditional Mandap Theme)
    ========================================================================== */
 

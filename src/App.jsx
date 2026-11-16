@@ -4,6 +4,7 @@ import 'lenis/dist/lenis.css';
 import { ArrowRight } from 'lucide-react';
 
 import HeroInvitation from './components/HeroInvitation';
+import CountdownSection from './components/CountdownSection';
 import EventsScheduleSection from './components/EventsScheduleSection';
 import ReceptionMandapSection from './components/ReceptionMandapSection';
 import SlidingCardGallery from './components/SlidingCardGallery';
@@ -190,7 +191,10 @@ export default function App() {
         {/* Section 1: Hero Main Invitation Card */}
         <HeroInvitation />
 
-        {/* Section 2: Events Schedule Mandap Theme (Right after Hero) */}
+        {/* Countdown Clock to the Auspicious Day */}
+        <CountdownSection />
+
+        {/* Section 2: Events Schedule Mandap Theme */}
         <EventsScheduleSection />
 
         {/* Section 3: Reception Mandap Theme (Evening Celebrations) */}
