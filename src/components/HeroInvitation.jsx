@@ -1,4 +1,5 @@
 import React from 'react';
+import { MapPin } from 'lucide-react';
 
 export default function HeroInvitation() {
   return (
@@ -34,7 +35,7 @@ export default function HeroInvitation() {
             <div className="hero-person-block arrival-item" style={{ '--delay': '0.3s' }}>
               <h1 className="hero-groom-name">Dr. Vishnu Prakash U.K.</h1>
               <p className="hero-parent-info">
-                S/o Sri Chintha Anjaneyulu &amp; Smt. Chintha Aruna
+                S/o Mr. Prakash P. &amp; Mrs. Lakshmi Devi
               </p>
             </div>
 
@@ -53,7 +54,35 @@ export default function HeroInvitation() {
 
           </div>
 
+          {/* Wedding Ceremony & Muhurtham Schedule Block */}
+          <div className="hero-ceremony-details arrival-item" style={{ '--delay': '0.52s' }}>
+            <p className="hero-muhurtham-time">
+              Muhurtham between 8.00 am to 9.00 am
+            </p>
+            <p className="hero-ceremony-venue">
+              Thalikettu at Kuttippuram Nottanalukkal Bhagavathy Temple
+            </p>
+            <p className="hero-reception-lunch">
+              Function and Lunch thereafter at Olive Convention Center,<br />
+              Moodal- Kuttippuram
+            </p>
+          </div>
+
         </div>
+
+        {/* View Location Action Under the Hero Card */}
+        <div className="hero-under-card-action arrival-item" style={{ '--delay': '0.55s' }}>
+          <a 
+            href="https://maps.google.com/?q=Nottanalukkal+Bhagavathy+Temple+Kuttippuram"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="schedule-mandap-map-btn"
+          >
+            <MapPin size={15} />
+            <span>View on Google Maps</span>
+          </a>
+        </div>
+
       </div>
     </section>
   );

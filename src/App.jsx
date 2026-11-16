@@ -17,7 +17,9 @@ import './App.css';
 export default function App() {
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
   const [hasEntered, setHasEntered] = useState(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const audioRef = useRef(null);
+  const videoRef = useRef(null);
 
   // Initialize IntersectionObserver arrival animations for staggered elements
   useScrollArrival(hasEntered);
@@ -78,6 +80,29 @@ export default function App() {
     }
   };
 
+  const handleSealClick = (e) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+
+    setIsVideoPlaying(true);
+    videoRef.current.currentTime = 0;
+    videoRef.current.play().catch((err) => {
+      console.warn('Video play prevented:', err);
+    });
+
+    if (audioRef.current && !isPlayingMusic) {
+      audioRef.current.play().then(() => {
+        setIsPlayingMusic(true);
+      }).catch((err) => {
+        console.warn('Audio play prevented:', err);
+      });
+    }
+  };
+
+  const handleVideoEnded = () => {
+    handleOpenInvitation();
+  };
+
   const handleOpenInvitation = () => {
     setHasEntered(true);
     // Smoothly scroll to the invitation card using Lenis once opened
@@ -113,31 +138,36 @@ export default function App() {
 
       {/* Video Cover Landing Screen */}
       {!hasEntered && (
-        <div className="video-cover-screen">
+        <div className={`video-cover-screen ${isVideoPlaying ? 'video-active' : 'envelope-active'}`}>
           <video
+            ref={videoRef}
             className="cover-video"
-            autoPlay
-            loop
-            muted
             playsInline
+            muted
             src="/intro-video.mp4"
+            poster="/video-poster.jpg"
+            onEnded={handleVideoEnded}
           />
-          <div className="cover-video-overlay">
-            <div className="cover-content">
-              <span className="cover-tag">|| Shree Ganeshay Namaha ||</span>
-              <h1 className="cover-quote">Together with our families, we solicit your gracious presence and blessings on the auspicious occasion of the wedding celebration of</h1>
-              <p className="cover-couple">
-                Dr. Vishnu Prakash U.K. &amp; Dr. Sreelekha E.M.
-              </p>
-              <button 
-                className="cover-open-btn"
-                onClick={handleOpenInvitation}
+
+          {/* Envelope Card overlay when video hasn't started */}
+          {!isVideoPlaying && (
+            <div className="envelope-interactive-overlay">
+              <div 
+                className="wax-seal-hotspot"
+                onClick={handleSealClick}
+                role="button"
+                tabIndex={0}
+                aria-label="Click wax seal to open invitation video"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    handleSealClick(e);
+                  }
+                }}
               >
-                <span>Open Invitation</span>
-                <ArrowRight size={18} />
-              </button>
+                <div className="wax-seal-pulse-ring" />
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )}
 

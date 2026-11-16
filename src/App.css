@@ -42,9 +42,55 @@
   animation: coverFadeIn 0.5s ease-out;
 }
 
-@keyframes coverFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.envelope-interactive-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.wax-seal-hotspot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wax-seal-pulse-ring {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 175, 55, 0.7);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.5);
+  animation: waxSealPulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  pointer-events: none;
+}
+
+@keyframes waxSealPulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.92);
+    opacity: 0.8;
+  }
 }
 
 .cover-video {
@@ -62,9 +108,9 @@
   inset: 0;
   background: transparent;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  padding: 24px;
+  padding: 36px 24px 60px 24px;
   pointer-events: none;
 }
 
@@ -278,10 +324,11 @@
   width: 100%;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #f7efe1;
-  padding: 24px 16px;
+  padding: 24px 16px 36px 16px;
 }
 
 .kerala-frame-content-wrapper {
@@ -297,21 +344,30 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 380px 32px 100px 32px; /* Center content nicely in parchment open area */
+  padding: 340px 32px 140px 32px; /* Center content nicely in parchment open area above Kerala house */
   box-sizing: border-box;
   z-index: 2;
 }
 
+.hero-under-card-action {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  z-index: 3;
+}
+
 @media (max-width: 560px) {
   .kerala-watercolor-theme {
-    padding: 0;
+    padding: 0 0 32px 0;
   }
   .kerala-frame-content-wrapper {
     max-width: 100%;
     min-height: 100vh;
     border-radius: 0;
     box-shadow: none;
-    padding: 38vh 20px 12vh 20px;
+    padding: 34vh 20px 14vh 20px;
     background-size: cover;
   }
 }
@@ -417,6 +473,48 @@
   margin: 0 auto;
   max-width: 420px;
   letter-spacing: 0.2px;
+}
+
+/* Hero Invitation Ceremony Details Block */
+.hero-ceremony-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 18px;
+  padding: 0 10px;
+  width: 100%;
+}
+
+.hero-muhurtham-time {
+  font-family: var(--font-serif);
+  font-size: clamp(14px, 1.8vw, 17px);
+  font-weight: 600;
+  color: #5e0b1c;
+  line-height: 1.4;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.3px;
+}
+
+.hero-ceremony-venue {
+  font-family: var(--font-serif);
+  font-size: clamp(13px, 1.7vw, 15px);
+  font-weight: 500;
+  color: #2b1f1a;
+  line-height: 1.45;
+  margin: 0 0 8px 0;
+  max-width: 400px;
+}
+
+.hero-reception-lunch {
+  font-family: var(--font-serif);
+  font-size: clamp(13px, 1.7vw, 15px);
+  font-weight: 500;
+  color: #2b1f1a;
+  line-height: 1.45;
+  margin: 0;
+  max-width: 400px;
 }
 
 /* ==========================================================================

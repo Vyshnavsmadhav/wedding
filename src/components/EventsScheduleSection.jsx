@@ -47,8 +47,8 @@ export default function EventsScheduleSection() {
             {/* Venue Block */}
             <div className="ceremony-venue-box arrival-item" style={{ '--delay': '0.5s' }}>
               <span className="venue-label">Venue:</span>
-              <p className="venue-name">Kuttippuram Nottanalukkal Bhagavathy Temple,</p>
-              <p className="venue-location">Moodal - Kuttippuram</p>
+              <p className="venue-name">Shifa Convention Center,</p>
+              <p className="venue-location">Mannarkkad Road, Perinthalmanna</p>
             </div>
           </div>
 
@@ -57,7 +57,7 @@ export default function EventsScheduleSection() {
         {/* View Location Action Under the Card */}
         <div className="schedule-under-card-action arrival-item" style={{ '--delay': '0.55s' }}>
           <a 
-            href="https://maps.google.com/?q=Nottanalukkal+Bhagavathy+Temple+Kuttippuram"
+            href="https://maps.google.com/?q=Shifa+Convention+Center+Mannarkkad+Road+Perinthalmanna"
             target="_blank"
             rel="noopener noreferrer"
             className="schedule-mandap-map-btn"

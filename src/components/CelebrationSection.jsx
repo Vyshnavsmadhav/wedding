@@ -25,7 +25,7 @@ export default function CelebrationSection() {
             <div className="person-details-box arrival-item" style={{ '--delay': '0.35s' }}>
               <h2 className="person-name-script">Dr. Vishnu Prakash U.K.</h2>
               <p className="person-family-subtitle">
-                S/o Sri Chintha Anjaneyulu &amp; Smt. Chintha Aruna
+                S/o Mr. Prakash P. &amp; Mrs. Lakshmi Devi
               </p>
             </div>
           </div>

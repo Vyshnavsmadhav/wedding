@@ -5,7 +5,7 @@
 export const weddingData = {
   couple: {
     groom: "Dr. Vishnu Prakash U.K.",
-    groomParents: "S/o Sri Chintha Anjaneyulu & Smt. Chintha Aruna",
+    groomParents: "S/o Mr. Prakash P. & Mrs. Lakshmi Devi",
     bride: "Dr. Sreelekha E.M.",
     brideParents: "D/o Sri Velineni Srinivasa Rao & Smt. Velineni Sunitha Rani",
     shortNames: "Dr. Vishnu & Dr. Sreelekha",
