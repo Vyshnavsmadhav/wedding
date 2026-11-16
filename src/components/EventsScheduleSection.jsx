@@ -19,38 +19,48 @@ export default function EventsScheduleSection() {
         {/* Traditional Temple Card Theme */}
         <div className="schedule-temple-card arrival-item" style={{ '--delay': '0.15s' }}>
           
-          {/* Top Section above dashed divider: Muhurtham, Script Wedding, Date, Time */}
+          {/* Top Section above dashed divider (matching Reception Card style) */}
           <div className="temple-content-top">
             <p className="temple-muhurtham-label arrival-item" style={{ '--delay': '0.2s' }}>
-              MUHURTHAM
+              YOU ARE CORDIALLY INVITED TO
             </p>
             
             <h3 className="temple-wedding-script arrival-item" style={{ '--delay': '0.25s' }}>
               The Wedding
             </h3>
+
+            <p className="temple-tagline arrival-item" style={{ '--delay': '0.3s' }}>
+              Join us as we tie the knot and begin<br />
+              our sacred journey together in divine grace.
+            </p>
             
-            <p className="temple-date-line arrival-item" style={{ '--delay': '0.3s' }}>
-              Sunday 13 December
-            </p>
-
-            <p className="temple-year-line arrival-item" style={{ '--delay': '0.35s' }}>
-              2 0 2 6
-            </p>
-
-            <div className="temple-time-pill arrival-item" style={{ '--delay': '0.4s' }}>
-              <span className="temple-time-icon">🕒</span>
-              <span className="temple-time-text">8:00 AM to 9:00 AM</span>
+            {/* Date Badge: Sunday | 13 | December */}
+            <div className="temple-date-badge arrival-item" style={{ '--delay': '0.35s' }}>
+              <span className="temple-date-day">Sunday</span>
+              <span className="temple-date-num">13</span>
+              <span className="temple-date-month">December</span>
             </div>
+
+            <p className="temple-era-sub arrival-item" style={{ '--delay': '0.38s' }}>
+              (2026)
+            </p>
+
+            <p className="temple-time arrival-item" style={{ '--delay': '0.4s' }}>
+              08:00 AM &amp; 09:00 AM (Muhurtham)
+            </p>
           </div>
 
-          {/* Bottom Section below dashed divider: Temple Venue Name, Location, Button */}
+          {/* Bottom Section below dashed divider: Venue and Maps Button */}
           <div className="temple-content-bottom">
-            <h4 className="temple-venue-title arrival-item" style={{ '--delay': '0.45s' }}>
-              Kuttippuram Nottanalukkal<br />Bhagavathy Temple
-            </h4>
-            <p className="temple-venue-sub arrival-item" style={{ '--delay': '0.5s' }}>
-              Moodal, Kuttippuram
-            </p>
+            <div className="temple-venue-box arrival-item" style={{ '--delay': '0.45s' }}>
+              <span className="temple-venue-label">Venue:</span>
+              <h4 className="temple-venue-title">
+                Kuttippuram Nottanalukkal Bhagavathy Temple,
+              </h4>
+              <p className="temple-venue-sub">
+                Moodal, Kuttippuram
+              </p>
+            </div>
 
             {/* Integrated Action Button inside bottom ticket space */}
             <div className="temple-ticket-btn-wrapper arrival-item" style={{ '--delay': '0.55s' }}>
@@ -60,8 +70,8 @@ export default function EventsScheduleSection() {
                 rel="noopener noreferrer"
                 className="temple-ticket-map-btn"
               >
-                <MapPin size={14} />
-                <span>VIEW LOCATION</span>
+                <MapPin size={15} />
+                <span>View on Google Maps</span>
               </a>
             </div>
           </div>

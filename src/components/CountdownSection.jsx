@@ -44,33 +44,33 @@ export default function CountdownSection() {
 
         {/* Content Heading */}
         <div className="countdown-header-box">
-          <p className="countdown-eyebrow">COUNTING DOWN TO</p>
-          <h2 className="countdown-title-script">The Auspicious Day</h2>
+          <p className="countdown-eyebrow arrival-item" style={{ '--delay': '0.1s' }}>COUNTING DOWN TO</p>
+          <h2 className="countdown-title-script arrival-item" style={{ '--delay': '0.18s' }}>The Auspicious Day</h2>
         </div>
 
         {/* 4 Arch Window Timer Cards */}
         <div className="countdown-timer-grid">
           
           {/* Days */}
-          <div className="countdown-arch-card">
+          <div className="countdown-arch-card arrival-item" style={{ '--delay': '0.24s' }}>
             <span className="countdown-num">{pad(timeLeft.days)}</span>
             <span className="countdown-label">DAYS</span>
           </div>
 
           {/* Hours */}
-          <div className="countdown-arch-card">
+          <div className="countdown-arch-card arrival-item" style={{ '--delay': '0.32s' }}>
             <span className="countdown-num">{pad(timeLeft.hours)}</span>
             <span className="countdown-label">HOURS</span>
           </div>
 
           {/* Minutes */}
-          <div className="countdown-arch-card">
+          <div className="countdown-arch-card arrival-item" style={{ '--delay': '0.40s' }}>
             <span className="countdown-num">{pad(timeLeft.minutes)}</span>
             <span className="countdown-label">MINUTES</span>
           </div>
 
           {/* Seconds */}
-          <div className="countdown-arch-card">
+          <div className="countdown-arch-card arrival-item" style={{ '--delay': '0.48s' }}>
             <span className="countdown-num">{pad(timeLeft.seconds)}</span>
             <span className="countdown-label">SECONDS</span>
           </div>

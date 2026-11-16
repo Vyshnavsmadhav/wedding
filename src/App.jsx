@@ -67,6 +67,46 @@ export default function App() {
   }, [hasEntered]);
 
   // Background traditional Indian classical wedding music toggle
+  const startMusicAtFiveSeconds = () => {
+    if (!audioRef.current) return;
+    try {
+      if (audioRef.current.currentTime < 5) {
+        audioRef.current.currentTime = 5;
+      }
+      audioRef.current.play().then(() => {
+        setIsPlayingMusic(true);
+      }).catch((err) => {
+        console.warn('Audio play hindered by browser autoplay policy:', err);
+      });
+    } catch (e) {
+      console.warn('Error starting audio at 5s:', e);
+    }
+  };
+
+  // Attempt to start music right from the cover page as soon as mounted or on first user interaction
+  useEffect(() => {
+    // Try auto-play immediately
+    startMusicAtFiveSeconds();
+
+    // Fallback: start immediately upon any user gesture on cover page
+    const handleFirstUserInteraction = () => {
+      startMusicAtFiveSeconds();
+      window.removeEventListener('pointerdown', handleFirstUserInteraction);
+      window.removeEventListener('touchstart', handleFirstUserInteraction);
+      window.removeEventListener('click', handleFirstUserInteraction);
+    };
+
+    window.addEventListener('pointerdown', handleFirstUserInteraction);
+    window.addEventListener('touchstart', handleFirstUserInteraction);
+    window.addEventListener('click', handleFirstUserInteraction);
+
+    return () => {
+      window.removeEventListener('pointerdown', handleFirstUserInteraction);
+      window.removeEventListener('touchstart', handleFirstUserInteraction);
+      window.removeEventListener('click', handleFirstUserInteraction);
+    };
+  }, []);
+
   const toggleMusic = () => {
     if (!audioRef.current) return;
 
@@ -74,6 +114,9 @@ export default function App() {
       audioRef.current.pause();
       setIsPlayingMusic(false);
     } else {
+      if (audioRef.current.currentTime < 5) {
+        audioRef.current.currentTime = 5;
+      }
       audioRef.current.play().then(() => {
         setIsPlayingMusic(true);
       }).catch((err) => {
@@ -92,12 +135,16 @@ export default function App() {
       console.warn('Video play prevented:', err);
     });
 
-    if (audioRef.current && !isPlayingMusic) {
-      audioRef.current.play().then(() => {
-        setIsPlayingMusic(true);
-      }).catch((err) => {
-        console.warn('Audio play prevented:', err);
-      });
+    startMusicAtFiveSeconds();
+  };
+
+  const handleVideoTimeUpdate = () => {
+    // When video is ~0.8s from ending, start the fluid blend-in transition
+    if (videoRef.current && !isTransitioning && !hasEntered) {
+      const remaining = videoRef.current.duration - videoRef.current.currentTime;
+      if (remaining <= 0.9 && videoRef.current.duration > 1.5) {
+        handleOpenInvitation();
+      }
     }
   };
 
@@ -115,16 +162,10 @@ export default function App() {
       window.__lenis.resize();
     }
 
-    // Optionally start peaceful background music on user action
-    if (audioRef.current && !isPlayingMusic) {
-      audioRef.current.play().then(() => {
-        setIsPlayingMusic(true);
-      }).catch((err) => {
-        console.warn('Audio auto-start hindered by browser:', err);
-      });
-    }
+    // Start background music seamlessly from 5s
+    startMusicAtFiveSeconds();
 
-    // Fluid cross-fade timeout allowing smooth blending before unmounting cover
+    // Fluid continuous morph into hero section
     setTimeout(() => {
       setHasEntered(true);
       setIsTransitioning(false);
@@ -132,7 +173,7 @@ export default function App() {
         window.__lenis.resize();
         window.__lenis.scrollTo(0, { immediate: true });
       }
-    }, 1100);
+    }, 1400);
   };
 
   return (
@@ -158,6 +199,7 @@ export default function App() {
             muted
             src="/intro-video.mp4"
             poster="/video-poster.jpg"
+            onTimeUpdate={handleVideoTimeUpdate}
             onEnded={handleVideoEnded}
           />
 
@@ -176,7 +218,12 @@ export default function App() {
                   }
                 }}
               >
+                <div className="wax-seal-ripple-wave ring-1" />
+                <div className="wax-seal-ripple-wave ring-2" />
                 <div className="wax-seal-pulse-ring" />
+                <div className="wax-seal-tap-prompt">
+                  <span>TAP TO UNSEAL</span>
+                </div>
               </div>
             </div>
           )}

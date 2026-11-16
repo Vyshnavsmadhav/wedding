@@ -5,16 +5,16 @@
 
 .arrival-item {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(24px) scale(0.985);
+  transition: opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: var(--delay, 0s);
   will-change: opacity, transform;
 }
 
 .arrival-item.arrived {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 /* User reduced motion preference */
@@ -27,26 +27,29 @@
 }
 
 /* ==========================================================================
-   VIDEO COVER LANDING SCREEN
+   VIDEO COVER LANDING SCREEN & SPLENDID CONTINUOUS TRANSITION
    ========================================================================== */
 
 .video-cover-screen {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background-color: #000;
+  background-color: #0b0705;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   animation: coverFadeIn 0.5s ease-out;
-  transition: opacity 1.1s cubic-bezier(0.25, 1, 0.5, 1), transform 1.1s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: opacity, transform;
+  transition: opacity 1.35s cubic-bezier(0.22, 1, 0.36, 1), 
+              transform 1.35s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 1.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
 }
 
 .video-cover-screen.cover-dissolving {
   opacity: 0;
-  transform: scale(1.035);
+  transform: scale(1.045);
+  filter: blur(2px);
   pointer-events: none;
 }
 
@@ -65,25 +68,103 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 140px;
-  height: 140px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   cursor: pointer;
   pointer-events: auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   -webkit-tap-highlight-color: transparent;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.wax-seal-hotspot:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.wax-seal-hotspot:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+/* Concentric Royal Ripple Waves */
+.wax-seal-ripple-wave {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  pointer-events: none;
+}
+
+.wax-seal-ripple-wave.ring-1 {
+  width: 108px;
+  height: 108px;
+  animation: sealRipple 2.4s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.wax-seal-ripple-wave.ring-2 {
+  width: 126px;
+  height: 126px;
+  animation: sealRipple 2.4s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s;
+}
+
+@keyframes sealRipple {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+  60% {
+    transform: scale(1.22);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
 }
 
 .wax-seal-pulse-ring {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  border: 2px solid rgba(212, 175, 55, 0.7);
-  box-shadow: 0 0 16px rgba(212, 175, 55, 0.5);
+  border: 2px solid rgba(212, 175, 55, 0.85);
+  box-shadow: 0 0 22px rgba(212, 175, 55, 0.65), inset 0 0 14px rgba(212, 175, 55, 0.35);
   animation: waxSealPulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
   pointer-events: none;
+}
+
+.wax-seal-tap-prompt {
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: var(--font-caps, 'Cinzel', serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: #f7e2b2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85), 0 0 10px rgba(212, 175, 55, 0.5);
+  padding: 4px 14px;
+  background: rgba(40, 10, 16, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  animation: promptGlow 2s infinite alternate ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes promptGlow {
+  from {
+    opacity: 0.8;
+    transform: translateX(-50%) translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(3px);
+  }
 }
 
 @keyframes waxSealPulse {
@@ -92,8 +173,8 @@
     opacity: 0.8;
   }
   50% {
-    transform: scale(1.15);
-    opacity: 0.3;
+    transform: scale(1.12);
+    opacity: 0.35;
   }
   100% {
     transform: scale(0.92);
@@ -109,6 +190,7 @@
   height: 100%;
   object-fit: cover;
   pointer-events: none;
+  transition: transform 1.2s ease-out;
 }
 
 .cover-video-overlay {
@@ -355,6 +437,20 @@
   padding: 340px 32px 140px 32px; /* Center content nicely in parchment open area above Kerala house */
   box-sizing: border-box;
   z-index: 2;
+  animation: heroCardBloom 1.4s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+@keyframes heroCardBloom {
+  0% {
+    transform: scale(0.96);
+    opacity: 0.7;
+    filter: blur(4px);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
 }
 
 .hero-under-card-action {
@@ -798,13 +894,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 44% 20px 4% 20px;
+  padding: 74% 20px 4% 20px;
   box-sizing: border-box;
 }
 
 @media (max-width: 500px) {
   .schedule-temple-card {
-    padding: 44% 16px 3.5% 16px;
+    padding: 73.5% 16px 3.5% 16px;
   }
 }
 
@@ -815,61 +911,80 @@
   align-items: center;
   text-align: center;
   margin-bottom: 0;
-  min-height: 28%;
 }
 
 .temple-muhurtham-label {
   font-family: var(--font-caps);
-  font-size: clamp(9px, 1.6vw, 11px);
+  font-size: clamp(8.5px, 1.5vw, 10.5px);
   font-weight: 700;
-  letter-spacing: 3.5px;
-  color: #a4713c;
+  letter-spacing: 2px;
+  color: #7b1827;
   text-transform: uppercase;
   margin: 0 0 1px 0;
 }
 
 .temple-wedding-script {
   font-family: 'Great Vibes', 'Cormorant Garamond', cursive;
-  font-size: clamp(38px, 6.2vw, 48px);
+  font-size: clamp(36px, 6.2vw, 48px);
   color: #7b1827;
   font-weight: 400;
   line-height: 1.05;
   margin: 0 0 4px 0;
-  text-shadow: 0 1px 3px rgba(123, 24, 39, 0.12);
+  text-shadow: 0 1px 3px rgba(123, 24, 39, 0.1);
 }
 
-.temple-date-line {
+.temple-tagline {
   font-family: var(--font-serif);
-  font-size: clamp(17px, 2.6vw, 21px);
-  font-weight: 600;
-  color: #3b2316;
-  margin: 0 0 2px 0;
-  letter-spacing: 0.3px;
+  font-style: italic;
+  font-size: clamp(11.5px, 1.7vw, 13.5px);
+  line-height: 1.35;
+  color: #4a342b;
+  margin: 0 0 8px 0;
 }
 
-.temple-year-line {
-  font-family: var(--font-serif);
-  font-size: clamp(12px, 1.8vw, 14px);
-  letter-spacing: 5px;
-  color: #a4713c;
-  font-weight: 600;
-  margin: 0 0 6px 0;
-}
-
-.temple-time-pill {
+.temple-date-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  color: #7b1827;
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: clamp(13px, 1.9vw, 15px);
-  margin-top: 2px;
+  gap: 8px;
+  margin-bottom: 2px;
 }
 
-.temple-time-icon {
-  font-size: 13px;
+.temple-date-day,
+.temple-date-month {
+  font-family: var(--font-serif);
+  font-size: clamp(14px, 2.2vw, 17px);
+  font-weight: 600;
+  color: #541722;
+  letter-spacing: 0.3px;
+}
+
+.temple-date-num {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  color: #541722;
+  line-height: 1;
+  padding: 0 8px;
+  border-left: 1.5px solid #541722;
+  border-right: 1.5px solid #541722;
+}
+
+.temple-era-sub {
+  font-family: var(--font-serif);
+  font-size: clamp(11px, 1.5vw, 12.5px);
+  font-style: italic;
+  color: #6e5648;
+  margin: 0 0 3px 0;
+}
+
+.temple-time {
+  font-family: var(--font-serif);
+  font-size: clamp(12px, 1.8vw, 14px);
+  font-weight: 600;
+  color: #7b1827;
+  letter-spacing: 0.4px;
+  margin: 0;
 }
 
 .temple-content-bottom {
@@ -878,31 +993,47 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 4%;
+  margin-top: 20%;
+}
+
+.temple-venue-box {
+  padding-top: 4px;
+  width: 100%;
+  max-width: 290px;
+}
+
+.temple-venue-label {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: clamp(13px, 1.8vw, 15px);
+  color: #541722;
+  display: block;
+  margin-bottom: 2px;
 }
 
 .temple-venue-title {
   font-family: var(--font-serif);
-  font-size: clamp(15px, 2.2vw, 18px);
+  font-size: clamp(12.5px, 1.7vw, 14.5px);
   font-weight: 600;
-  color: #3b2316;
+  color: #3b0f17;
   line-height: 1.3;
-  margin: 0 0 3px 0;
+  margin: 0;
 }
 
 .temple-venue-sub {
   font-family: var(--font-serif);
-  font-size: clamp(13px, 1.8vw, 15px);
+  font-size: clamp(12px, 1.6vw, 13.5px);
   color: #6e5648;
-  margin: 0 0 16px 0;
+  margin: 2px 0 14px 0;
 }
 
 .temple-ticket-btn-wrapper {
   width: 100%;
-  max-width: 250px;
+  max-width: 280px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: auto;
 }
 
 .temple-ticket-map-btn {
@@ -911,26 +1042,27 @@
   justify-content: center;
   gap: 8px;
   width: 100%;
-  padding: 8px 18px;
-  background: transparent;
-  color: #7b1827;
+  max-width: 260px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #7b1827 0%, #541722 100%);
+  color: #ffffff;
   border-radius: var(--radius-full);
-  font-size: 11px;
+  font-size: 13px;
   text-decoration: none;
-  font-family: var(--font-caps);
-  font-weight: 700;
-  letter-spacing: 2.2px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.4px;
   transition: all 0.3s ease;
-  border: 1.5px solid #c5a059;
-  box-shadow: 0 2px 8px rgba(179, 139, 76, 0.12);
+  border: 1px solid rgba(179, 139, 76, 0.4);
+  box-shadow: 0 4px 14px rgba(84, 23, 34, 0.28);
 }
 
 .temple-ticket-map-btn:hover {
-  background: linear-gradient(135deg, #7b1827 0%, #541722 100%);
-  color: #fff;
-  border-color: transparent;
+  background: linear-gradient(135deg, #942233 0%, #70212f 100%);
+  color: #ffffff;
+  border-color: rgba(223, 203, 165, 0.7);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(84, 23, 34, 0.25);
+  box-shadow: 0 8px 20px rgba(84, 23, 34, 0.38);
 }
 
 .ceremony-eyebrow {
@@ -1157,8 +1289,8 @@
   width: 100%;
   max-width: 260px;
   padding: 10px 20px;
-  background: transparent;
-  color: #7b1827;
+  background: linear-gradient(135deg, #7b1827 0%, #541722 100%);
+  color: #ffffff;
   border-radius: var(--radius-full);
   font-size: 13px;
   text-decoration: none;
@@ -1166,16 +1298,16 @@
   font-weight: 600;
   letter-spacing: 0.4px;
   transition: all 0.3s ease;
-  border: 1.5px solid #b38b4c;
-  box-shadow: 0 2px 8px rgba(179, 139, 76, 0.15);
+  border: 1px solid rgba(179, 139, 76, 0.4);
+  box-shadow: 0 4px 14px rgba(84, 23, 34, 0.28);
 }
 
 .reception-ticket-map-btn:hover {
-  background: linear-gradient(135deg, #7b1827 0%, #541722 100%);
-  color: #fff;
-  border-color: transparent;
+  background: linear-gradient(135deg, #942233 0%, #70212f 100%);
+  color: #ffffff;
+  border-color: rgba(223, 203, 165, 0.7);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(84, 23, 34, 0.25);
+  box-shadow: 0 8px 20px rgba(84, 23, 34, 0.38);
 }
 
 .reception-card-eyebrow {
