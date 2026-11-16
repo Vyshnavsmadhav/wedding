@@ -9,7 +9,7 @@ export const weddingData = {
     bride: "Dr. Sreelekha E.M.",
     brideParents: "D/o Sri Velineni Srinivasa Rao & Smt. Velineni Sunitha Rani",
     shortNames: "Dr. Vishnu & Dr. Sreelekha",
-    tagline: "Together with our families, we solicit your gracious presence and blessings on the auspicious occasion of the wedding celebration of",
+    tagline: "With the blessings of our families, we warmly invite you to join us in celebrating our wedding and to bless us as we embark on this beautiful journey together.",
     subtagline: "|| Shree Ganeshay Namaha ||"
   },
   dates: {
@@ -50,7 +50,7 @@ export const weddingData = {
     directionsUrl: "https://maps.google.com/?q=The+Raviz+Ashtamudi+Kollam",
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941.874136979246!2d76.5746779!3d8.9056636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05fced42c94ee3%3A0xc6c7d2426dfec989!2sThe%20Raviz%20Ashtamudi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
     phone: "+91 474 275 1111",
-    email: "celebrations@akshayandsurya.com"
+    email: "celebrations@vishnuandsreelekha.com"
   },
   closing: {
     heading: "With Love & Anticipation",

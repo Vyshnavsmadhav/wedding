@@ -24,7 +24,7 @@ export default function HeroInvitation() {
           {/* Invitation Solicitation Header Text */}
           <div className="hero-solicit-box arrival-item" style={{ '--delay': '0.2s' }}>
             <p className="hero-solicit-text">
-              Together with our families, we solicit your gracious presence and blessings on the auspicious occasion of the wedding celebration of
+              With the blessings of our families, we warmly invite you to join us in celebrating our wedding and to bless us as we embark on this beautiful journey together.
             </p>
           </div>
 
