@@ -19,50 +19,51 @@ export default function EventsScheduleSection() {
         {/* Traditional Temple Card Theme */}
         <div className="schedule-temple-card arrival-item" style={{ '--delay': '0.15s' }}>
           
-          {/* Ceremony Invitation Content on Clean Canvas */}
-          <div className="temple-content-body">
-            <p className="ceremony-eyebrow arrival-item" style={{ '--delay': '0.2s' }}>
-              JOIN US FOR THE
+          {/* Top Section above dashed divider: Muhurtham, Script Wedding, Date, Time */}
+          <div className="temple-content-top">
+            <p className="temple-muhurtham-label arrival-item" style={{ '--delay': '0.2s' }}>
+              MUHURTHAM
             </p>
             
-            <h3 className="ceremony-title-script arrival-item" style={{ '--delay': '0.3s' }}>
-              Wedding Ceremony
+            <h3 className="temple-wedding-script arrival-item" style={{ '--delay': '0.25s' }}>
+              The Wedding
             </h3>
             
-            <p className="ceremony-tagline arrival-item" style={{ '--delay': '0.35s' }}>
-              As we tie the knot and begin<br />our new journey together.
+            <p className="temple-date-line arrival-item" style={{ '--delay': '0.3s' }}>
+              Sunday 13 December
             </p>
 
-            {/* Date Block */}
-            <div className="ceremony-date-badge arrival-item" style={{ '--delay': '0.4s' }}>
-              <span className="date-side-day">Sunday</span>
-              <span className="date-center-num">13</span>
-              <span className="date-side-month">December</span>
-            </div>
-
-            <p className="ceremony-time arrival-item" style={{ '--delay': '0.45s' }}>
-              08:00 AM - 09:00 AM
+            <p className="temple-year-line arrival-item" style={{ '--delay': '0.35s' }}>
+              2 0 2 6
             </p>
 
-            {/* Venue Block */}
-            <div className="ceremony-venue-box arrival-item" style={{ '--delay': '0.5s' }}>
-              <span className="venue-label">Venue:</span>
-              <p className="venue-name">Shifa Convention Center,</p>
-              <p className="venue-location">Mannarkkad Road, Perinthalmanna</p>
+            <div className="temple-time-pill arrival-item" style={{ '--delay': '0.4s' }}>
+              <span className="temple-time-icon">🕒</span>
+              <span className="temple-time-text">8:00 AM to 9:00 AM</span>
             </div>
           </div>
 
-          {/* Integrated Action Button in the bottom ticket space */}
-          <div className="temple-ticket-btn-wrapper arrival-item" style={{ '--delay': '0.55s' }}>
-            <a 
-              href="https://maps.google.com/?q=Shifa+Convention+Center+Mannarkkad+Road+Perinthalmanna"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="temple-ticket-map-btn"
-            >
-              <MapPin size={15} />
-              <span>View on Google Maps</span>
-            </a>
+          {/* Bottom Section below dashed divider: Temple Venue Name, Location, Button */}
+          <div className="temple-content-bottom">
+            <h4 className="temple-venue-title arrival-item" style={{ '--delay': '0.45s' }}>
+              Kuttippuram Nottanalukkal<br />Bhagavathy Temple
+            </h4>
+            <p className="temple-venue-sub arrival-item" style={{ '--delay': '0.5s' }}>
+              Moodal, Kuttippuram
+            </p>
+
+            {/* Integrated Action Button inside bottom ticket space */}
+            <div className="temple-ticket-btn-wrapper arrival-item" style={{ '--delay': '0.55s' }}>
+              <a 
+                href="https://maps.google.com/?q=Nottanalukkal+Bhagavathy+Temple+Kuttippuram"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="temple-ticket-map-btn"
+              >
+                <MapPin size={14} />
+                <span>VIEW LOCATION</span>
+              </a>
+            </div>
           </div>
 
         </div>
