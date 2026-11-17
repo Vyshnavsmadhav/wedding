@@ -38,6 +38,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -46,6 +47,8 @@ html {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   scroll-behavior: auto !important; /* Let Lenis handle the physics smoothly without conflicts */
   text-rendering: optimizeLegibility;
 }
@@ -72,6 +75,7 @@ html.lenis, html.lenis body {
 
 body {
   min-height: 100vh;
+  min-height: 100dvh;
   background-color: var(--color-ivory);
   background-image: 
     radial-gradient(circle at 15% 15%, rgba(179, 139, 76, 0.04) 0%, transparent 45%),
@@ -79,6 +83,11 @@ body {
   color: var(--color-text-primary);
   line-height: 1.65;
   overflow-x: hidden;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Elegant scrollbar */

@@ -33,6 +33,9 @@
 .video-cover-screen {
   position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
   z-index: 9999;
   background-color: #0b0705;
   display: flex;

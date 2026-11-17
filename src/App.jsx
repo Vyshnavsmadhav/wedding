@@ -196,7 +196,9 @@ export default function App() {
             ref={videoRef}
             className="cover-video"
             playsInline
+            webkit-playsinline="true"
             muted
+            preload="auto"
             src="/intro-video.mp4"
             poster="/video-poster.jpg"
             onTimeUpdate={handleVideoTimeUpdate}
