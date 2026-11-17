@@ -40,16 +40,17 @@
   justify-content: center;
   overflow: hidden;
   animation: coverFadeIn 0.5s ease-out;
-  transition: opacity 1.35s cubic-bezier(0.22, 1, 0.36, 1), 
-              transform 1.35s cubic-bezier(0.22, 1, 0.36, 1),
-              filter 1.35s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform, filter;
+  transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), 
+              transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .video-cover-screen.cover-dissolving {
   opacity: 0;
-  transform: scale(1.045);
-  filter: blur(2px);
+  transform: scale(1.03) translateZ(0);
   pointer-events: none;
 }
 
@@ -437,19 +438,19 @@
   padding: 340px 32px 140px 32px; /* Center content nicely in parchment open area above Kerala house */
   box-sizing: border-box;
   z-index: 2;
-  animation: heroCardBloom 1.4s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation: heroCardBloom 1.3s cubic-bezier(0.25, 1, 0.5, 1) backwards;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 @keyframes heroCardBloom {
   0% {
-    transform: scale(0.96);
-    opacity: 0.7;
-    filter: blur(4px);
+    transform: scale(0.97) translateY(12px);
+    opacity: 0.6;
   }
   100% {
-    transform: scale(1);
+    transform: scale(1) translateY(0);
     opacity: 1;
-    filter: blur(0);
   }
 }
 
@@ -881,10 +882,11 @@
 
 /* Traditional Kerala Temple Card */
 .schedule-temple-card {
+  position: relative;
   width: 100%;
   max-width: 440px;
-  aspect-ratio: 716 / 1306;
-  background: url('/temple-ticket-card-clean.jpg') no-repeat center center;
+  aspect-ratio: 360 / 661;
+  background: url('/wedding-mandap-ticket-card.jpg') no-repeat center center;
   background-size: 100% 100%;
   border-radius: 18px;
   box-shadow: 0 16px 40px rgba(84, 23, 34, 0.12), 0 4px 16px rgba(0, 0, 0, 0.06);
@@ -894,13 +896,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 74% 20px 4% 20px;
+  padding: 80% 20px 4% 20px;
   box-sizing: border-box;
 }
 
 @media (max-width: 500px) {
   .schedule-temple-card {
-    padding: 73.5% 16px 3.5% 16px;
+    padding: 80% 16px 3.5% 16px;
   }
 }
 
@@ -925,12 +927,56 @@
 
 .temple-wedding-script {
   font-family: 'Great Vibes', 'Cormorant Garamond', cursive;
-  font-size: clamp(36px, 6.2vw, 48px);
+  font-size: clamp(38px, 6.6vw, 52px);
   color: #7b1827;
   font-weight: 400;
-  line-height: 1.05;
-  margin: 0 0 4px 0;
+  line-height: 1.1;
+  margin: 0 0 6px 0;
   text-shadow: 0 1px 3px rgba(123, 24, 39, 0.1);
+}
+
+.temple-ceremony-date {
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 3.4vw, 25px);
+  font-weight: 600;
+  color: #3b0f17;
+  letter-spacing: 0.5px;
+  margin: 2px 0 3px 0;
+}
+
+.temple-ceremony-year {
+  font-family: var(--font-serif);
+  font-size: clamp(13px, 2.1vw, 15px);
+  letter-spacing: 5px;
+  color: #7a5c4d;
+  margin: 0 0 5px 0;
+}
+
+.temple-ceremony-sub {
+  font-family: var(--font-caps);
+  font-size: clamp(10.5px, 1.8vw, 12.5px);
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #9b7245;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+}
+
+.temple-lunch-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-serif);
+  font-size: clamp(14px, 2.2vw, 16.5px);
+  font-style: italic;
+  color: #7b1827;
+  margin: 0;
+}
+
+.temple-lunch-icon {
+  color: #7b1827;
+  flex-shrink: 0;
 }
 
 .temple-tagline {
@@ -947,13 +993,13 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-bottom: 2px;
+  margin: 3px 0 2px 0;
 }
 
 .temple-date-day,
 .temple-date-month {
   font-family: var(--font-serif);
-  font-size: clamp(14px, 2.2vw, 17px);
+  font-size: clamp(16px, 2.6vw, 20px);
   font-weight: 600;
   color: #541722;
   letter-spacing: 0.3px;
@@ -961,21 +1007,23 @@
 
 .temple-date-num {
   font-family: var(--font-serif);
-  font-size: clamp(24px, 4vw, 32px);
+  font-size: clamp(26px, 4.4vw, 36px);
   font-weight: 700;
   color: #541722;
   line-height: 1;
-  padding: 0 8px;
+  padding: 0 10px;
   border-left: 1.5px solid #541722;
   border-right: 1.5px solid #541722;
 }
 
 .temple-era-sub {
   font-family: var(--font-serif);
-  font-size: clamp(11px, 1.5vw, 12.5px);
-  font-style: italic;
+  font-size: clamp(12.5px, 1.8vw, 14.5px);
   color: #6e5648;
-  margin: 0 0 3px 0;
+  margin: 0 0 6px 0;
+  text-align: center;
+  width: 100%;
+  display: block;
 }
 
 .temple-time {
@@ -993,68 +1041,64 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 20%;
+  margin-top: 22%;
 }
 
 .temple-venue-box {
-  padding-top: 4px;
+  padding-top: 2px;
   width: 100%;
-  max-width: 290px;
-}
-
-.temple-venue-label {
-  font-family: var(--font-serif);
-  font-weight: 700;
-  font-size: clamp(13px, 1.8vw, 15px);
-  color: #541722;
-  display: block;
-  margin-bottom: 2px;
+  max-width: 330px;
 }
 
 .temple-venue-title {
   font-family: var(--font-serif);
-  font-size: clamp(12.5px, 1.7vw, 14.5px);
+  font-size: clamp(18px, 2.9vw, 22.5px);
   font-weight: 600;
-  color: #3b0f17;
+  color: #2e0c12;
   line-height: 1.3;
-  margin: 0;
+  margin: 0 0 5px 0;
 }
 
 .temple-venue-sub {
   font-family: var(--font-serif);
-  font-size: clamp(12px, 1.6vw, 13.5px);
-  color: #6e5648;
-  margin: 2px 0 14px 0;
+  font-size: clamp(15px, 2.3vw, 18px);
+  color: #5c4438;
+  margin: 0;
 }
 
 .temple-ticket-btn-wrapper {
-  width: 100%;
-  max-width: 280px;
+  position: absolute;
+  top: 88.35%;
+  left: 21.67%;
+  width: 57.22%;
+  height: 6.35%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: auto;
+  z-index: 5;
+  box-sizing: border-box;
 }
 
 .temple-ticket-map-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 7px;
   width: 100%;
-  max-width: 260px;
-  padding: 10px 20px;
+  height: 100%;
+  padding: 0 12px;
   background: linear-gradient(135deg, #7b1827 0%, #541722 100%);
   color: #ffffff;
-  border-radius: var(--radius-full);
-  font-size: 13px;
+  border-radius: 9999px;
+  font-size: clamp(10.5px, 1.5vw, 12.5px);
   text-decoration: none;
   font-family: var(--font-sans);
   font-weight: 600;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.3px;
   transition: all 0.3s ease;
   border: 1px solid rgba(179, 139, 76, 0.4);
   box-shadow: 0 4px 14px rgba(84, 23, 34, 0.28);
+  box-sizing: border-box;
 }
 
 .temple-ticket-map-btn:hover {
@@ -1385,34 +1429,35 @@
 }
 
 .reception-card-venue-box {
-  padding-top: 1px;
+  margin-top: 32px;
+  padding-top: 4px;
   width: 100%;
-  max-width: 290px;
+  max-width: 320px;
 }
 
 .reception-venue-label {
   font-family: var(--font-serif);
   font-weight: 700;
-  font-size: clamp(12.5px, 1.7vw, 14px);
+  font-size: clamp(14px, 2vw, 16px);
   color: #541722;
   display: block;
-  margin-bottom: 1px;
+  margin-bottom: 2px;
 }
 
 .reception-venue-name {
   font-family: var(--font-serif);
-  font-size: clamp(12px, 1.7vw, 14px);
+  font-size: clamp(15.5px, 2.4vw, 18.5px);
   font-weight: 600;
   color: #3b0f17;
-  line-height: 1.25;
-  margin: 0;
+  line-height: 1.35;
+  margin: 0 0 3px 0;
 }
 
 .reception-venue-location {
   font-family: var(--font-serif);
-  font-size: clamp(11.5px, 1.6vw, 13px);
+  font-size: clamp(13px, 1.9vw, 15px);
   color: #6e5648;
-  margin: 1px 0 0 0;
+  margin: 0;
 }
 
 .reception-under-card-action {

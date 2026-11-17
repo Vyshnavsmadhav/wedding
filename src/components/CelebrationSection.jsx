@@ -39,7 +39,7 @@ export default function CelebrationSection() {
             <div className="person-details-box arrival-item" style={{ '--delay': '0.25s' }}>
               <h2 className="person-name-script">Dr. Sreelekha E.M.</h2>
               <p className="person-family-subtitle">
-                D/o Sri Velineni Srinivasa Rao &amp; Smt. Velineni Sunitha Rani
+                Daughter of Mr. Sreenivas MT &amp; Mrs. Ruqmini EM
               </p>
             </div>
 

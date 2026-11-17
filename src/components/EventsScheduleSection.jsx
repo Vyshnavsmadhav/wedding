@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin } from 'lucide-react';
+import { MapPin, Utensils } from 'lucide-react';
 
 export default function EventsScheduleSection() {
   return (
@@ -19,61 +19,56 @@ export default function EventsScheduleSection() {
         {/* Traditional Temple Card Theme */}
         <div className="schedule-temple-card arrival-item" style={{ '--delay': '0.15s' }}>
           
-          {/* Top Section above dashed divider (matching Reception Card style) */}
+          {/* Top Section above dashed divider */}
           <div className="temple-content-top">
-            <p className="temple-muhurtham-label arrival-item" style={{ '--delay': '0.2s' }}>
-              YOU ARE CORDIALLY INVITED TO
-            </p>
-            
-            <h3 className="temple-wedding-script arrival-item" style={{ '--delay': '0.25s' }}>
-              The Wedding
+            <h3 className="temple-wedding-script arrival-item" style={{ '--delay': '0.2s' }}>
+              Ceremony &amp; Lunch
             </h3>
 
-            <p className="temple-tagline arrival-item" style={{ '--delay': '0.3s' }}>
-              Join us as we tie the knot and begin<br />
-              our sacred journey together in divine grace.
-            </p>
-            
             {/* Date Badge: Sunday | 13 | December */}
-            <div className="temple-date-badge arrival-item" style={{ '--delay': '0.35s' }}>
+            <div className="temple-date-badge arrival-item" style={{ '--delay': '0.28s' }}>
               <span className="temple-date-day">Sunday</span>
               <span className="temple-date-num">13</span>
               <span className="temple-date-month">December</span>
             </div>
 
-            <p className="temple-era-sub arrival-item" style={{ '--delay': '0.38s' }}>
-              (2026)
+            <p className="temple-era-sub arrival-item" style={{ '--delay': '0.34s' }}>
+              2026
             </p>
 
-            <p className="temple-time arrival-item" style={{ '--delay': '0.4s' }}>
-              08:00 AM &amp; 09:00 AM (Muhurtham)
+            <p className="temple-ceremony-sub arrival-item" style={{ '--delay': '0.4s' }}>
+              FOLLOWING THE THALIKETTU
             </p>
+
+            <div className="temple-lunch-row arrival-item" style={{ '--delay': '0.46s' }}>
+              <Utensils size={15} className="temple-lunch-icon" />
+              <span>Lunch will be served thereafter</span>
+            </div>
           </div>
 
-          {/* Bottom Section below dashed divider: Venue and Maps Button */}
+          {/* Bottom Section below dashed divider: Venue */}
           <div className="temple-content-bottom">
-            <div className="temple-venue-box arrival-item" style={{ '--delay': '0.45s' }}>
-              <span className="temple-venue-label">Venue:</span>
+            <div className="temple-venue-box arrival-item" style={{ '--delay': '0.52s' }}>
               <h4 className="temple-venue-title">
-                Kuttippuram Nottanalukkal Bhagavathy Temple,
+                Olive International Convention Centre
               </h4>
               <p className="temple-venue-sub">
                 Moodal, Kuttippuram
               </p>
             </div>
+          </div>
 
-            {/* Integrated Action Button inside bottom ticket space */}
-            <div className="temple-ticket-btn-wrapper arrival-item" style={{ '--delay': '0.55s' }}>
-              <a 
-                href="https://maps.google.com/?q=Nottanalukkal+Bhagavathy+Temple+Kuttippuram"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="temple-ticket-map-btn"
-              >
-                <MapPin size={15} />
-                <span>View on Google Maps</span>
-              </a>
-            </div>
+          {/* Integrated Action Button inside bottom ticket space */}
+          <div className="temple-ticket-btn-wrapper">
+            <a 
+              href="https://www.google.com/maps/search/?api=1&query=Olive+International+Convention+Centre+and+Exhibition+Hall+NH+66+Moodal+Kuttippuram+Kerala+679571"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="temple-ticket-map-btn"
+            >
+              <MapPin size={15} />
+              <span>View on Google Maps</span>
+            </a>
           </div>
 
         </div>

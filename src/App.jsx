@@ -139,10 +139,10 @@ export default function App() {
   };
 
   const handleVideoTimeUpdate = () => {
-    // When video is ~0.8s from ending, start the fluid blend-in transition
+    // When video is ~0.8s from ending, trigger the seamless blend-in transition
     if (videoRef.current && !isTransitioning && !hasEntered) {
       const remaining = videoRef.current.duration - videoRef.current.currentTime;
-      if (remaining <= 0.9 && videoRef.current.duration > 1.5) {
+      if (remaining <= 0.85 && videoRef.current.duration > 1.5) {
         handleOpenInvitation();
       }
     }
@@ -156,16 +156,16 @@ export default function App() {
     if (isTransitioning || hasEntered) return;
     setIsTransitioning(true);
 
-    // Give Lenis the signal to start immediately
+    // Start background music seamlessly from 5s
+    startMusicAtFiveSeconds();
+
+    // Prepare Lenis to scroll cleanly
     if (window.__lenis) {
       window.__lenis.start();
       window.__lenis.resize();
     }
 
-    // Start background music seamlessly from 5s
-    startMusicAtFiveSeconds();
-
-    // Fluid continuous morph into hero section
+    // Seamless handover directly timed with the 1.2s dissolve
     setTimeout(() => {
       setHasEntered(true);
       setIsTransitioning(false);
@@ -173,7 +173,7 @@ export default function App() {
         window.__lenis.resize();
         window.__lenis.scrollTo(0, { immediate: true });
       }
-    }, 1400);
+    }, 1200);
   };
 
   return (

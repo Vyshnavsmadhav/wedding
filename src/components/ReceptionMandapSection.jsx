@@ -18,12 +18,7 @@ export default function ReceptionMandapSection() {
           
           {/* Text Container Positioned Inside Arch */}
           <div className="reception-stage-content-body">
-            
-            <p className="reception-card-eyebrow arrival-item" style={{ '--delay': '0.2s' }}>
-              YOU ARE CORDIALLY INVITED TO OUR
-            </p>
-
-            <h3 className="reception-card-title-script arrival-item" style={{ '--delay': '0.3s' }}>
+            <h3 className="reception-card-title-script arrival-item" style={{ '--delay': '0.2s' }}>
               Reception
             </h3>
 
@@ -50,7 +45,6 @@ export default function ReceptionMandapSection() {
 
             {/* Venue Block */}
             <div className="reception-card-venue-box arrival-item" style={{ '--delay': '0.5s' }}>
-              <span className="reception-venue-label">Venue:</span>
               <p className="reception-venue-name">Shifa Convention Center,</p>
               <p className="reception-venue-location">Mannarkkad Road, Perinthalmanna</p>
             </div>

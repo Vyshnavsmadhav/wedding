@@ -7,7 +7,7 @@ export const weddingData = {
     groom: "Dr. Vishnu Prakash U.K.",
     groomParents: "S/o Mr. Prakash P. & Mrs. Lakshmi Devi",
     bride: "Dr. Sreelekha E.M.",
-    brideParents: "D/o Sri Velineni Srinivasa Rao & Smt. Velineni Sunitha Rani",
+    brideParents: "Daughter of Mr. Sreenivas MT & Mrs. Ruqmini EM",
     shortNames: "Dr. Vishnu & Dr. Sreelekha",
     tagline: "With the blessings of our families, we warmly invite you to join us in celebrating our wedding and to bless us as we embark on this beautiful journey together.",
     subtagline: "|| Shree Ganeshay Namaha ||"

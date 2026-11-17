@@ -48,7 +48,7 @@ export default function HeroInvitation() {
             <div className="hero-person-block arrival-item" style={{ '--delay': '0.45s' }}>
               <h1 className="hero-bride-name">Dr. Sreelekha E.M.</h1>
               <p className="hero-parent-info">
-                D/o Sri Velineni Srinivasa Rao &amp; Smt. Velineni Sunitha Rani
+                Daughter of Mr. Sreenivas MT &amp; Mrs. Ruqmini EM
               </p>
             </div>
 
@@ -62,10 +62,6 @@ export default function HeroInvitation() {
             <p className="hero-ceremony-venue">
               Thalikettu at Kuttippuram Nottanalukkal Bhagavathy Temple
             </p>
-            <p className="hero-reception-lunch">
-              Function and Lunch thereafter at Olive Convention Center,<br />
-              Moodal- Kuttippuram
-            </p>
           </div>
 
         </div>
@@ -73,7 +69,7 @@ export default function HeroInvitation() {
         {/* View Location Action Under the Hero Card */}
         <div className="hero-under-card-action arrival-item" style={{ '--delay': '0.55s' }}>
           <a 
-            href="https://maps.google.com/?q=Olive+Convention+Center+Moodal+Kuttippuram"
+            href="https://www.google.com/maps/search/?api=1&query=Sree+Nottanalukkal+Bhagavathy+Temple+Kuttippuram+Kerala"
             target="_blank"
             rel="noopener noreferrer"
             className="schedule-mandap-map-btn"
